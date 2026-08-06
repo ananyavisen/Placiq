@@ -1,5 +1,13 @@
+
+# Node
 node_modules/
 dist/
+
+# Python
+backend/.venv/
+__pycache__/
+*.pyc
+
+# Environment
 .env
-.env.*
 .vscode/
