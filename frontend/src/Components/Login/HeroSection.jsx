@@ -8,7 +8,7 @@ export default function HeroSection() {
 
       <div className="flex items-center gap-3">
 
-        <img src={logo} alt="logo" className="w-25 h-25" />
+        <img src={logo} alt="logo" className="w-25 h-18" />
 
         <div>
           <h1 className="text-2xl font-[Manrope] font-bold">Placiq</h1>
