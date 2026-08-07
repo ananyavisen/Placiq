@@ -51,7 +51,7 @@ import {
         </h1>
   
         <p className="mt-3 font-[Inter] text-[#6B6478]">
-          Start your placement journey with PrePal.
+          Start your placement journey with Placiq.
         </p>
   
         {/* Full Name */}
