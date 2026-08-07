@@ -1,4 +1,4 @@
-import Resources from "./Components/Resources/Resources";
+import Assessment from "./Components/Assessment/Assessment";
 import bg from "./assets/bg.png";
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
       className="h-screen overflow-hidden bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: `url(${bg})` }}
     >
-      <Resources />
+      <Assessment />
     </div>
   );
 }
