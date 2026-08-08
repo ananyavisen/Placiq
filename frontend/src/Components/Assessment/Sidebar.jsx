@@ -29,7 +29,7 @@ export default function Sidebar({ activeItem = "Assessments" }) {
 };
 
   return (
-    <aside className="hidden w-56 shrink-0 flex-col lg:flex xl:w-60">
+    <aside className="hidden h-full w-56 shrink-0 flex-col lg:flex xl:w-60">
       {/* Brand */}
       <div className="flex items-center gap-3 px-2 py-4">
         <img src={logo} alt="Placiq logo" className="h-10 w-10 object-contain" />
@@ -44,7 +44,7 @@ export default function Sidebar({ activeItem = "Assessments" }) {
       </div>
 
       {/* Navigation */}
-      <nav className="flex flex-1 flex-col gap-0.5 overflow-y-auto px-3">
+      <nav className="flex flex-1 flex-col gap-0.5 overflow-y-auto px-3 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
         {navItems.map((item) => {
           const Icon = iconMap[item.icon];
           const isActive = item.label === activeItem;
