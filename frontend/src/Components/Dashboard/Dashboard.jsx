@@ -4,6 +4,7 @@ import Welcome from "./Welcome";
 import StatsGrid from "./StatsGrid";
 import QuickActions from "./QuickActions";
 import Schedule from "./Schedule";
+import Recommendations from "./Recommendations";
 
 import bg from "../../assets/bg.png";
 
@@ -27,6 +28,7 @@ export default function Dashboard() {
           <div className="space-y-5">
           <QuickActions />
           <StatsGrid />
+          <Recommendations />
           </div>
 
            {/* Right section */}
