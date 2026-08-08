@@ -9,7 +9,7 @@ import StatCard from "./StatCard";
 
 const StatsGrid = () => {
   return (
-    <div className="grid grid-cols-4 gap-4 mt-5">
+    <div className="grid grid-cols-4 gap-4 mt-5 items-stretch">
 
       {/* Placement Readiness */}
       <PlacementReadiness />
@@ -38,6 +38,7 @@ const StatsGrid = () => {
         title="Problems Solved"
         value="142"
         description="Out of 300 this week"
+        extra="↑ 12% this week"
       />
 
     </div>

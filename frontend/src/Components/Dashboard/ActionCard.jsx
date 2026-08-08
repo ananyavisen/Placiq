@@ -11,8 +11,8 @@ export default function ActionCard({
         bg-white/70
         backdrop-blur-md
         border border-white/60
-        rounded-3xl
-        p-4
+        rounded-2xl
+        p-5
         shadow-md
         hover:shadow-xl
         hover:border-violet-200
@@ -23,8 +23,8 @@ export default function ActionCard({
         cursor-pointer
       "
     >
-      <div className="flex items-start justify-between">
-        <div className="w-10 h-10 rounded-2xl bg-violet-100 flex items-center justify-center text-violet-600">
+      {/* <div className="flex items-start justify-between">
+        <div className="w-11 h-11 rounded-2xl bg-violet-100 flex items-center justify-center text-violet-600">
           {icon}
         </div>
 
@@ -36,10 +36,24 @@ export default function ActionCard({
         />
       </div>
 
-      <h3 className="mt-5 text-[1.15rem] font-semibold font-semibold text-[#22245A]">
+      <h3 className="mt-5 text-[1.15rem] font-semibold text-[#22245A]">
         {title}
-      </h3>
+      </h3> */}
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-3">
+           <div className="-ml-3 w-10 h-10 rounded-2xl bg-violet-100 flex items-center justify-center text-violet-600 shrink-0">
+            {icon}
+           </div>
+           <h3 className="-ml-2 text-[1rem] font-semibold text-[#22245A] whitespace-nowrap">
+            {title}
+           </h3>
+        </div>
 
+        <ChevronRight
+          size={16}
+          className="text-slate-400 transition group-hover:translate-x-1 shrink-0"
+         />
+</div>
       <p className="mt-1 text-sm text-slate-600 leading-5">
         {description}
       </p>

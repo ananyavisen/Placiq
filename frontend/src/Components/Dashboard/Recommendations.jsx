@@ -105,7 +105,7 @@ export default function Recommendations() {
         <img       
         src={item.image}   
         alt={item.title}       
-        className="w-40 h-40 object-contain scale-[1.75] "    
+        className="w-40 h-40 object-contain scale-150 "    
          />   
    </div>
    </div>
