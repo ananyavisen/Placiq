@@ -17,7 +17,7 @@ export default function Resources() {
   const [activeCategory, setActiveCategory] = useState("all");
 
   return (
-    <div className="flex h-full w-full flex-col">
+    <div className="flex h-[calc(100dvh-2.5rem)] w-full flex-col overflow-hidden sm:h-[calc(100dvh-2rem)]">
       <div className="flex min-h-0 flex-1 gap-3 overflow-hidden">
         <Sidebar activeItem="Resources" />
 
