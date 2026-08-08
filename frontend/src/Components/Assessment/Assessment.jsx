@@ -22,7 +22,6 @@ export default function Assessment() {
             <UserProfile />
           </div>
 
-          <Navbar />
 
           <div className="flex min-h-0 flex-1 overflow-hidden">
             {/* Main content */}
@@ -44,6 +43,9 @@ export default function Assessment() {
                   Create Assessment
                 </button>
               </div>
+
+              {/* Search bar */}
+              <Navbar />
 
               {/* Filter tabs */}
               <FilterTabs
