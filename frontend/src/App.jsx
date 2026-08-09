@@ -16,10 +16,18 @@
 // }
 
 // export default App
-import Dashboard from "./Components/Dashboard/Dashboard";
+// import Dashboard from "./Components/Dashboard/Dashboard";
+
+// function App() {
+//   return <Dashboard />;
+// }
+
+// export default App;
+
+import Settings from "./Components/Settings/Settings";
 
 function App() {
-  return <Dashboard />;
+  return <Settings />;
 }
 
 export default App;
