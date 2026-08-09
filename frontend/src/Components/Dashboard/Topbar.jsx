@@ -3,7 +3,7 @@ export default function Topbar() {
   return (
     <div className="mt-3 py-4 px-8 flex items-center">
       
-      {/* Search */}
+      {/* Search
         <div className="w-[360px] relative">
         <Search
         size={18}
@@ -15,7 +15,7 @@ export default function Topbar() {
          className="w-full h-12 rounded-full border border-[#ECECEC] pl-12 pr-4 text-[15px] outline-none focus:border-[#8B5CF6]"
         //  className="w-full h-11 rounded-full bg-white/80 backdrop-blur-md border border-white/40"
          />
-        </div>
+        </div> */}
 
       {/* Right Side */}
       <div className="ml-auto flex items-center gap-4">

@@ -32,7 +32,7 @@ const menuItems = [
 ];
 export default function Sidebar() {
   return (
-    <div className="w-[248px] bg-white rounded-[32px] min-h-screen shadow-sm flex flex-col p-6">
+    <div className="w-[248px] bg-transparent rounded-[32px] min-h-screen shadow-sm flex flex-col p-6">
         {/* Top Part */}
       <div className="flex items-center gap-3 px-0 pt-3 pb-6">
         {/* Logo */}
