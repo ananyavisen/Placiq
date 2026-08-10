@@ -16,18 +16,18 @@
 // }
 
 // export default App
-import Dashboard from "./Components/Dashboard/Dashboard";
+// import Dashboard from "./Components/Dashboard/Dashboard";
 
-function App() {
-  return <Dashboard />;
-}
+// function App() {
+//   return <Dashboard />;
+// }
 
-export default App;
+// export default App;
 
 // import Settings from "./Components/Settings/Settings";
 
 // function App() {
-//   return <Settings />;
+  // return <Settings />;
 // }
 
 // export default App;
@@ -49,3 +49,12 @@ export default App;
 //   );
 // }
 // export default App;
+
+import EditProfile from "./Components/Settings/EditProfile";
+
+function App() {
+  return (
+    <EditProfile />
+  );
+}
+export default App;
