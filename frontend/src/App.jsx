@@ -16,18 +16,36 @@
 // }
 
 // export default App
-// import Dashboard from "./Components/Dashboard/Dashboard";
+import Dashboard from "./Components/Dashboard/Dashboard";
+
+function App() {
+  return <Dashboard />;
+}
+
+export default App;
+
+// import Settings from "./Components/Settings/Settings";
 
 // function App() {
-//   return <Dashboard />;
+//   return <Settings />;
+// }
+
+// export default App;
+// import ForgotPassword from "./Components/Auth/ForgotPassword";
+
+// function App() {
+//   return (
+//     <ForgotPassword />
+//   );
 // }
 
 // export default App;
 
-import Settings from "./Components/Settings/Settings";
+// import ChangePassword from "./Components/Auth/ChangePassword";
 
-function App() {
-  return <Settings />;
-}
-
-export default App;
+// function App() {
+//   return (
+//     <ChangePassword />
+//   );
+// }
+// export default App;

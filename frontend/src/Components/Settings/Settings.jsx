@@ -9,7 +9,8 @@ import Security from "./Security";
 const Settings = () => {
   return (
     <div
-      className="min-h-screen bg-cover bg-center p-6"
+      // className="min-h-screen bg-cover bg-center p-6"
+      className="min-h-screen bg-[length:100%_100%] bg-no-repeat px-6 py-8"
       style={{ backgroundImage: `url(${bg})` }}
     >
       <div className="flex gap-6">
