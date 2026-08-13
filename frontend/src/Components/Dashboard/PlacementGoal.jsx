@@ -3,7 +3,7 @@ import googleLogo from "../../assets/companies/google.svg";
 import microsoftLogo from "../../assets/companies/microsoft.svg";
 import adobeLogo from "../../assets/companies/adobe.svg";
 import { ChevronRight } from "lucide-react";
-import { Headset } from "lucide-react";
+
 
 export default function PlacementGoal() {
   return (
