@@ -1,15 +1,10 @@
 import { ArrowLeft, Mail, Send, Headphones } from "lucide-react";
-import bg from "../../assets/bg.png";
 import logo from "../../assets/logo.png";
 import forgotPasswordImg from "../../assets/forgot-password.png";
 
 export default function ForgotPassword() {
   return (
-    <div
-    //   className="min-h-screen bg-cover bg-center px-6 py-8"
-    className="min-h-screen bg-[length:100%_100%] bg-no-repeat px-6 py-8"
-      style={{ backgroundImage: `url(${bg})` }}
-    >
+    <div className="px-6 py-8">
       {/* Logo */}
       <div className="ml-6 flex items-center gap-3">
      <img
