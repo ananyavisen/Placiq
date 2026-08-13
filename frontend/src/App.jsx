@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Login from './Components/Login/Login'
 import bg from "./assets/bg.png";
+import AICoach from "./Components/AICoach/AICoach";
 
 function App() {
   return (
