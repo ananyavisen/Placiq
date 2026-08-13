@@ -5,19 +5,12 @@
 .ai-coach-page {
   min-height: 100vh;
   width: 100%;
+
   display: flex;
-  background:
-    radial-gradient(
-      circle at 72% 15%,
-      rgba(238, 225, 255, 0.65),
-      transparent 30%
-    ),
-    linear-gradient(
-      135deg,
-      #fbfaff 0%,
-      #ffffff 52%,
-      #f7f4ff 100%
-    );
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 
   color: #172653;
   font-family: Inter, Arial, sans-serif;
@@ -49,7 +42,7 @@
 
   border-radius: 22px;
 
-  background: rgba(255, 255, 255, 0.88);
+  background: rgba(255, 255, 255, 0.05);
 
   border: 1px solid #eeeaf5;
 
@@ -72,33 +65,11 @@
   font-weight: 700;
 }
 
-.ai-brand-logo {
-  width: 31px;
-  height: 34px;
-
-  border-radius: 9px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  color: white;
-
-  font-size: 20px;
-  font-weight: 800;
-
-  font-style: italic;
-
-  background:
-    linear-gradient(
-      145deg,
-      #8d54f5,
-      #7441e9 55%,
-      #dd62e8
-    );
-
-  box-shadow:
-    0 5px 12px rgba(120, 70, 225, 0.2);
+.ai-brand-logo-image {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+  display: block;
 }
 
 .ai-navigation {
@@ -256,13 +227,21 @@
 ===================================================== */
 
 .ai-topbar {
-  height: 95px;
+  height: 55px;
 
   display: flex;
   align-items: center;
-  justify-content: space-between;
 
   padding: 0 8px;
+}
+
+.ai-topbar-right {
+  margin-left: auto;
+
+  display: flex;
+  align-items: center;
+
+  gap: 25px;
 }
 
 .ai-search {
@@ -364,7 +343,7 @@
 ===================================================== */
 
 .ai-coach-heading {
-  padding: 10px 8px 24px;
+  padding: 0 8px 24px;
 }
 
 .ai-coach-heading h1 {
@@ -422,7 +401,7 @@
   border: 1px solid #eeeaf5;
 
   background:
-    rgba(255, 255, 255, 0.78);
+    rgba(255, 255, 255, 0.20);
 
   box-shadow:
     0 5px 30px rgba(67, 50, 112, 0.035);
@@ -433,10 +412,12 @@
 
 .ai-messages {
   flex: 1;
-
   overflow-y: auto;
+  scrollbar-width: none;
+}
 
-  padding-right: 3px;
+.ai-messages::-webkit-scrollbar {
+  display: none;
 }
 
 .ai-message-row {
@@ -661,7 +642,7 @@
   border-radius: 16px;
 
   background:
-    rgba(255, 255, 255, 0.8);
+    rgba(255, 255, 255, 0.20);
 
   border: 1px solid #eeeaf5;
 

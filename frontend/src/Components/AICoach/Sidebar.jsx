@@ -13,6 +13,8 @@ import {
   Headphones,
 } from "lucide-react";
 
+import logo from "../../assets/logo.png";
+
 const menuItems = [
   {
     name: "Dashboard",
@@ -63,12 +65,15 @@ const Sidebar = () => {
 
       {/* Logo */}
       <div className="ai-brand">
-        <div className="ai-brand-logo">
-          P
-        </div>
+  <img
+    src={logo}
+    alt="Placiq"
+    className="ai-brand-logo-image"
+  />
 
-        <span>PrepPal</span>
-      </div>
+  <span>Placiq</span>
+
+</div>
 
       {/* Navigation */}
       <nav className="ai-navigation">

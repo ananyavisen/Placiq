@@ -1,3 +1,5 @@
+import logo from "../../assets/logo.png";
+import bg from "../../assets/bg.png";
 import React from "react";
 import Sidebar from "./Sidebar";
 import TopBar from "./TopBar";
@@ -7,7 +9,10 @@ import "./AICoach.css";
 
 const AICoach = () => {
   return (
-    <div className="ai-coach-page">
+    <div
+  className="ai-coach-page"
+  style={{ backgroundImage: `url(${bg})` }}
+>
       <Sidebar />
 
       <main className="ai-coach-main">
