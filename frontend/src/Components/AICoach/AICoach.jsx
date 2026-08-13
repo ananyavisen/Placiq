@@ -1,7 +1,8 @@
+
 import logo from "../../assets/logo.png";
 import bg from "../../assets/bg.png";
 import React from "react";
-import Sidebar from "./Sidebar";
+import Sidebar from "../Common/Sidebar";
 import TopBar from "./TopBar";
 import ChatPanel from "./ChatPanel";
 import RightPanel from "./RightPanel";
