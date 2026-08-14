@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Sidebar from "./Sidebar";
 import Navbar from "./Navbar";
 import UserProfile from "./UserProfile";
 import FilterTabs from "./FilterTabs";
@@ -13,15 +12,7 @@ export default function Assessment() {
 
   return (
     <div className="flex h-[calc(100vh-32px)] w-full flex-col lg:h-[calc(100vh-40px)]">
-      <div className="flex min-h-0 flex-1 gap-3 overflow-hidden">
-        <Sidebar />
-
-        <div className="flex min-w-0 flex-1 flex-col">
-          {/* User profile — top right, aligned with brand row */}
-          <div className="flex justify-end px-1 pb-1 pt-1">
-            <UserProfile />
-          </div>
-
+      
 
           <div className="flex min-h-0 flex-1 overflow-hidden">
             {/* Main content */}
@@ -75,7 +66,6 @@ export default function Assessment() {
             </aside>
           </div>
         </div>
-      </div>
-    </div>
+      
   );
 }
