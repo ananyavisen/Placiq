@@ -1,0 +1,969 @@
+/* =========================
+   ROADMAP PAGE
+========================= */
+
+.roadmap-page {
+  width: 100%;
+  max-width: 100%;
+  padding: 0;
+  color: #17203b;
+}
+
+/* =========================
+   PAGE TITLE
+========================= */
+
+.page-title {
+  padding: 8px 0 14px;
+}
+
+.title-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.page-title h1 {
+  margin: 0;
+  font-size: clamp(25px, 2.2vw, 33px);
+  font-weight: 500;
+  letter-spacing: -0.9px;
+  color: #17203b;
+}
+
+.title-sparkle {
+  width: 37px;
+  height: 37px;
+  display: grid;
+  place-items: center;
+  color: #783de0;
+  background: linear-gradient(
+    145deg,
+    #f0e5ff,
+    #ffeef1
+  );
+  border-radius: 11px;
+}
+
+.page-title p {
+  margin: 7px 0 0;
+  color: #71778a;
+  font-size: 13px;
+}
+
+/* =========================
+   THREE COLUMN AREA
+========================= */
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 315px;
+  gap: 18px;
+  align-items: start;
+}
+
+.content {
+  min-width: 0;
+}
+
+/* =========================
+   ROADMAP
+========================= */
+
+.roadmap {
+  position: relative;
+}
+
+/* vertical dotted line */
+
+.roadmap::before {
+  content: "";
+  position: absolute;
+  left: 20px;
+  top: 25px;
+  bottom: 25px;
+  border-left: 1.5px dashed #cbb9df;
+}
+
+/* =========================
+   ROADMAP STEP
+========================= */
+
+.roadmap-step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr);
+  gap: 12px;
+  padding-bottom: 9px;
+}
+
+/* =========================
+   NUMBER CIRCLE
+========================= */
+
+.step-number {
+  position: relative;
+  z-index: 3;
+
+  margin-top: 12px;
+
+  width: 40px;
+  height: 40px;
+
+  border-radius: 50%;
+
+  display: grid;
+  place-items: center;
+
+  font-size: 14px;
+  font-weight: 800;
+
+  color: #6541a8;
+  background: #f4edff;
+
+  border: 3px solid white;
+
+  box-shadow:
+    0 4px 11px rgba(92, 57, 141, 0.12);
+}
+
+.roadmap-step.green .step-number {
+  background: #e8fae9;
+  color: #29904c;
+  box-shadow: 0 0 0 3px #c6f1cf;
+}
+
+.roadmap-step.purple .step-number {
+  color: #6f36d2;
+}
+
+.roadmap-step.blue .step-number {
+  color: #477fca;
+}
+
+.roadmap-step.orange .step-number {
+  color: #df8a24;
+}
+
+.roadmap-step.pink .step-number {
+  color: #d34b92;
+}
+
+.roadmap-step.violet .step-number {
+  color: #7540d9;
+}
+
+/* =========================
+   STEP CARD
+========================= */
+
+.step-card {
+  min-width: 0;
+  min-height: 105px;
+
+  display: grid;
+
+  grid-template-columns:
+    55px
+    minmax(0, 1fr)
+    auto;
+
+  gap: 14px;
+
+  align-items: center;
+
+  padding: 14px 15px;
+
+  border: 1px solid #ebe3f2;
+  border-radius: 16px;
+
+  background: rgba(255, 255, 255, 0.92);
+
+  box-shadow:
+    0 5px 18px rgba(74, 47, 107, 0.055);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.step-card:hover {
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 9px 24px rgba(74, 47, 107, 0.09);
+}
+
+/* =========================
+   STEP ICON
+========================= */
+
+.step-icon {
+  width: 47px;
+  height: 47px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 13px;
+}
+
+/* colors based on parent */
+
+.roadmap-step.green .step-icon {
+  color: #2e9b54;
+  background: #e7fae9;
+}
+
+.roadmap-step.purple .step-icon {
+  color: #7737dd;
+  background: #f0e5ff;
+}
+
+.roadmap-step.blue .step-icon {
+  color: #4181d6;
+  background: #e7f1ff;
+}
+
+.roadmap-step.orange .step-icon {
+  color: #df8a22;
+  background: #fff2dc;
+}
+
+.roadmap-step.pink .step-icon {
+  color: #d65399;
+  background: #fde8f3;
+}
+
+.roadmap-step.violet .step-icon {
+  color: #7540db;
+  background: #eee5ff;
+}
+
+/* =========================
+   STEP CONTENT
+   IMPORTANT:
+   These names match RoadmapStep.jsx
+========================= */
+
+.step-content {
+  min-width: 0;
+}
+
+.step-heading {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+}
+
+.step-heading > div {
+  min-width: 0;
+}
+
+.step-heading h3 {
+  margin: 0;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  color: #17203b;
+
+  letter-spacing: -0.2px;
+}
+
+.step-heading p {
+  margin: 4px 0 7px;
+
+  color: #6d7284;
+
+  font-size: 10px;
+
+  line-height: 1.35;
+}
+
+/* =========================
+   STATUS
+========================= */
+
+.step-status {
+  padding: 4px 8px;
+
+  border-radius: 999px;
+
+  font-size: 8px;
+  font-weight: 750;
+
+  white-space: nowrap;
+}
+
+.step-status.green {
+  color: #2d8246;
+  background: #e6f8e7;
+}
+
+.step-status.purple {
+  color: #6933c5;
+  background: #f0e5ff;
+}
+
+.step-status.blue,
+.step-status.orange,
+.step-status.pink,
+.step-status.violet {
+  color: #697085;
+  background: #f4f2f8;
+}
+
+/* =========================
+   TAGS
+========================= */
+
+.step-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.step-tags span {
+  font-size: 8px;
+
+  color: #545b6d;
+
+  background: #f7f5f9;
+
+  border: 1px solid #eeeaf2;
+
+  padding: 3px 6px;
+
+  border-radius: 5px;
+
+  white-space: nowrap;
+}
+
+/* =========================
+   RIGHT SIDE ACTIONS
+========================= */
+
+.step-actions {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+/* =========================
+   COMPLETED CHECK
+========================= */
+
+.done-check {
+  width: 38px;
+  height: 38px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  color: #309b57;
+
+  border: 2px solid #55bd78;
+
+  background: #f5fff7;
+}
+
+/* =========================
+   LOCK
+========================= */
+
+.locked {
+  width: 38px;
+  height: 38px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  color: #707789;
+
+  background: #f5f4f8;
+
+  border: 1px solid #e7e3ec;
+}
+
+/* =========================
+   EXPAND BUTTON
+========================= */
+
+.expand {
+  border: 0;
+  background: transparent;
+
+  color: #6e7281;
+
+  cursor: pointer;
+
+  display: grid;
+  place-items: center;
+
+  padding: 5px;
+}
+
+.expand:hover {
+  color: #6534c7;
+}
+
+.rotated {
+  transform: rotate(180deg);
+}
+
+/* =========================
+   PROGRESS CIRCLE
+========================= */
+
+.progress-circle {
+  width: 54px;
+  height: 54px;
+
+  position: relative;
+
+  display: grid;
+  place-items: center;
+}
+
+.progress-circle svg {
+  width: 54px;
+  height: 54px;
+}
+
+.progress-circle span {
+  position: absolute;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  color: #4e3c76;
+}
+
+/* =========================
+   EXPANDED DETAILS
+========================= */
+
+.step-details {
+  grid-column: 2;
+
+  margin: -2px 10px 0 0;
+
+  padding: 12px 16px;
+
+  border: 1px solid #ece6f3;
+
+  border-top: 0;
+
+  border-radius: 0 0 13px 13px;
+
+  background: rgba(250, 247, 255, 0.92);
+
+  font-size: 11px;
+
+  color: #707589;
+}
+
+.step-details strong {
+  color: #473b5f;
+}
+
+.step-details p {
+  margin: 4px 0 0;
+}
+
+/* =========================
+   RIGHT PANEL
+========================= */
+
+.right-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.side-card,
+.feature-strip {
+  border: 1px solid #ebe3f2;
+
+  background: rgba(255, 255, 255, 0.9);
+
+  border-radius: 17px;
+
+  box-shadow:
+    0 5px 18px rgba(74, 47, 107, 0.055);
+}
+
+.side-card {
+  padding: 17px;
+}
+
+.side-card-title {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  color: #6c39ce;
+}
+
+.side-card-title h3,
+.side-card h3 {
+  margin: 0;
+  font-size: 13px;
+}
+
+/* =========================
+   RECOMMENDED LEARNING
+========================= */
+
+.recommend-art {
+  width: 78px;
+  height: 78px;
+
+  margin: 18px auto 12px;
+
+  display: grid;
+  place-items: center;
+
+  color: #37aa5a;
+
+  border-radius: 17px;
+
+  background: linear-gradient(
+    145deg,
+    #e8f8ed,
+    #effaf8
+  );
+}
+
+.recommended h4 {
+  margin: 0;
+
+  text-align: center;
+
+  font-size: 15px;
+
+  color: #6533c7;
+}
+
+.recommended p {
+  margin: 8px auto 14px;
+
+  max-width: 240px;
+
+  text-align: center;
+
+  color: #727789;
+
+  font-size: 10.5px;
+
+  line-height: 1.55;
+}
+
+.primary-btn {
+  width: 100%;
+
+  border: 0;
+  border-radius: 9px;
+
+  padding: 10px;
+
+  color: white;
+
+  background:
+    linear-gradient(
+      90deg,
+      #7134d9,
+      #8d49ea
+    );
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 6px;
+
+  cursor: pointer;
+
+  font-size: 11px;
+  font-weight: 750;
+}
+
+/* =========================
+   READINESS
+========================= */
+
+.readiness h3,
+.milestones h3 {
+  margin-bottom: 11px;
+}
+/* ============================= */
+/* PLACEMENT READINESS GAUGE */
+/* ============================= */
+
+.readiness-ring {
+  width: 125px;
+  height: 125px;
+  margin: 5px auto 20px;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: conic-gradient(
+    #7a3ce2 0deg 259deg,
+    #ece7f3 259deg 360deg
+  );
+}
+
+/* Inner white circle */
+.readiness-ring::before {
+  content: "";
+  position: absolute;
+  width: 95px;
+  height: 95px;
+  border-radius: 50%;
+  background: white;
+}
+
+/* Text inside circle */
+.readiness-ring > div {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.readiness-ring strong {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.readiness-ring span {
+  margin-top: 5px;
+  font-size: 9px;
+  color: #777c8e;
+}
+/* =========================
+   METRICS
+========================= */
+
+.metric {
+  margin-top: 8px;
+}
+.readiness .metric:first-of-type {
+  margin-top: 0;
+}
+.metric > div:first-child {
+  display: flex;
+  justify-content: space-between;
+
+  font-size: 9.5px;
+}
+
+.metric b {
+  font-weight: 650;
+}
+
+.metric-bar {
+  height: 4px;
+
+  margin-top: 5px;
+
+  border-radius: 999px;
+
+  background: #eeeaf4;
+
+  overflow: hidden;
+}
+
+.metric-bar span {
+  display: block;
+
+  height: 100%;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      90deg,
+      #7740dc,
+      #8e4bea
+    );
+}
+
+.text-btn {
+  margin: 12px auto 0;
+  border: 0;
+  background: transparent;
+  color: #6936c8;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+
+  font-size: 10.5px;
+  font-weight: 700;
+}
+/* =========================
+   MILESTONES
+========================= */
+
+.milestone {
+  display: grid;
+
+  grid-template-columns:
+    22px
+    1fr
+    auto;
+
+  align-items: center;
+
+  gap: 6px;
+
+  padding: 8px 0;
+
+  border-bottom: 1px solid #f0edf4;
+}
+
+.milestone:last-of-type {
+  border-bottom: 0;
+}
+
+.milestone-dot {
+  width: 20px;
+  height: 20px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 6px;
+
+  background: #ecf8ed;
+
+  color: #39a354;
+}
+
+.milestone strong {
+  font-size: 9.5px;
+}
+
+.milestone small {
+  color: #7c8090;
+  font-size: 8.5px;
+}
+
+/* =========================
+   FEATURE STRIP
+========================= */
+
+.feature-strip {
+  margin-top: 2px;
+  padding: 17px;
+}
+
+.feature-heading {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 15px;
+}
+
+.feature-heading h3 {
+  margin: 0;
+  font-size: 14px;
+}
+
+.feature-heading p {
+  margin: 5px 0 0;
+
+  color: #777b8c;
+
+  font-size: 10.5px;
+}
+
+.feature-heading .text-btn {
+  margin-top: 0;
+  white-space: nowrap;
+}
+
+.feature-grid {
+  margin-top: 13px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 10px;
+}
+
+.feature {
+  display: grid;
+
+  grid-template-columns:
+    47px
+    1fr;
+
+  gap: 9px;
+
+  padding: 10px;
+
+  border: 1px solid #eee8f4;
+
+  border-radius: 12px;
+}
+
+.feature-icon {
+  width: 43px;
+  height: 43px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 11px;
+}
+
+.feature-icon.purple {
+  color: #7c40dc;
+  background: #f0e6ff;
+}
+
+.feature-icon.blue {
+  color: #397ad1;
+  background: #e5f0ff;
+}
+
+.feature-icon.green {
+  color: #2d9b57;
+  background: #e7f8eb;
+}
+
+.feature > div:last-child {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+}
+
+.feature strong {
+  font-size: 10.5px;
+}
+
+.feature span {
+  margin-top: 4px;
+
+  color: #777c8d;
+
+  font-size: 8.5px;
+
+  line-height: 1.4;
+}
+
+.feature button {
+  margin-top: 6px;
+
+  padding: 0;
+
+  border: 0;
+
+  background: transparent;
+
+  color: #6c36cb;
+
+  font-size: 8.5px;
+
+  font-weight: 750;
+
+  text-align: left;
+
+  cursor: pointer;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1180px) {
+  .layout {
+    grid-template-columns:
+      minmax(0, 1fr)
+      280px;
+  }
+
+  .step-card {
+    grid-template-columns:
+      50px
+      minmax(0, 1fr)
+      auto;
+
+    gap: 10px;
+  }
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .right-panel {
+    display: grid;
+
+    grid-template-columns:
+      repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 720px) {
+  .page-title h1 {
+    font-size: 25px;
+  }
+
+  .step-card {
+    grid-template-columns:
+      45px
+      minmax(0, 1fr);
+  }
+
+  .step-actions {
+    grid-column: 2;
+
+    justify-content: flex-end;
+
+    margin-top: -5px;
+  }
+
+  .right-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .step-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .step-heading p {
+    line-height: 1.5;
+  }
+}

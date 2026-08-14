@@ -1,18 +1,29 @@
-import { useState } from 'react'
-import Login from './Components/Login/Login'
-import bg from "./assets/bg.png";
+// import Roadmap from "./Components/roadmap/Roadmap";
+
+// function App() {
+//   return <Roadmap />;
+// }
+
+// export default App;
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Background from "./Components/Common/Background";
+import SidebarLayout from "./Components/Common/SidebarLayout";
+import Roadmap from "./Components/roadmap/Roadmap";
 
 function App() {
   return (
-    <>
-     <div
-        className="min-h-screen bg-cover bg-center bg-no-repeat p-5 sm:p-4 lg:p-4"
-        style={{ backgroundImage: `url(${bg})` }}
-      >
-      <Login />
-      </div>
-    </>
-  )
+    <BrowserRouter>
+      <Background>
+        <Routes>
+          <Route element={<SidebarLayout />}>
+            <Route path="/" element={<Roadmap />} />
+            <Route path="/roadmap" element={<Roadmap />} />
+          </Route>
+        </Routes>
+      </Background>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
