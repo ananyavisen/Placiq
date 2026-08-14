@@ -1,7 +1,5 @@
 import { useState } from "react";
 import { BookOpen, Search, ChevronDown, ArrowRight } from "lucide-react";
-import Sidebar from "../Assessment/Sidebar";
-import UserProfile from "../Assessment/UserProfile";
 import CategoryCard from "./CategoryCard";
 import ResourceCard from "./ResourceCard";
 import FilterSection from "./FilterSection";
@@ -18,13 +16,7 @@ export default function Resources() {
 
   return (
     <div className="flex h-[calc(100dvh-2.5rem)] w-full flex-col overflow-hidden sm:h-[calc(100dvh-2rem)]">
-      <div className="flex min-h-0 flex-1 gap-3 overflow-hidden">
-        <Sidebar activeItem="Resources" />
-
-        <div className="flex min-w-0 flex-1 flex-col">
-          <div className="flex justify-end px-1 pb-1 pt-1">
-            <UserProfile />
-          </div>
+      
 
           <div className="flex min-h-0 flex-1 overflow-hidden">
             <main className="flex-1 overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden px-1 py-3 sm:px-2">
@@ -129,7 +121,6 @@ export default function Resources() {
             </aside>
           </div>
         </div>
-      </div>
-    </div>
+      
   );
 }
