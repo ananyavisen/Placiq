@@ -7,6 +7,7 @@ import JobTrackerHeader from "./JobTrackerHeader";
 import JobRightPanel from "./JobRightPanel";
 
 import { applications } from "./applicationData";
+import ProfileHeader from "../Common/ProfileHeader";
 
 const applicationStats = {
   total: 28,
@@ -92,6 +93,7 @@ export default function JobLayout() {
 
       {/* Right Panel */}
       <aside className="w-80 shrink-0">
+        <ProfileHeader />
         <JobRightPanel />
       </aside>
 

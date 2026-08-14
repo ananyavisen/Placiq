@@ -2,7 +2,7 @@ import { Info } from "lucide-react";
 
 export default function ATSScoreCard() {
   return (
-    <div className="rounded-3xl border border-[#ECE8F8] bg-white/70 p-6 shadow-sm">
+    <div className="rounded-3xl border border-[#ECE8F8] bg-white/20 p-6 shadow-sm">
       <div className="mb-4 flex items-center gap-2">
         <h3 className="font-semibold text-slate-800">
           ATS Score
@@ -33,7 +33,7 @@ export default function ATSScoreCard() {
       </p>
 
       <div className="mt-4">
-        <div className="h-2 rounded-full bg-violet-100">
+        <div className="h-2 rounded-full bg-violet-100/40">
           <div className="h-2 w-[78%] rounded-full bg-violet-500"></div>
         </div>
 

@@ -8,7 +8,7 @@ const PlacementReadiness = () => {
   const value = 72;
 
   return (
-    <div className="bg-white rounded-3xl p-5 h-[260px] shadow-sm border border-gray-100 hover:shadow-lg transition-all">
+    <div className="bg-white rounded-3xl p-5 h-65 shadow-sm border border-gray-100 hover:shadow-lg transition-all">
 
       <h3 className="-translate-x-2 text-[14px] font-semibold text-[#1C225B] whitespace-nowrap">
         Placement Readiness

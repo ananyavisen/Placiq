@@ -3,7 +3,7 @@ import profile from "../../assets/profile.jpg"; // replace with your image
 
 export default function ProfileHeader() {
   return (
-    <div className="flex items-center justify-between mb-8">
+    <div className="flex items-center gap-5 mb-8 ml-7">
 
       {/* Notification */}
       <button className="relative">

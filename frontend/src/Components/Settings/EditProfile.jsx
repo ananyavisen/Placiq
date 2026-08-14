@@ -12,10 +12,7 @@ import logo from "../../assets/logo.png";
 
 const EditProfile = () => {
   return (
-    <div
-      className="min-h-screen bg-[length:100%_100%] bg-no-repeat px-6 py-8"
-      style={{ backgroundImage: `url(${bg})` }}
-    >
+     <>
       {/* Logo */}
       <div className="ml-8 mt-2 flex items-center gap-3">
         <img
@@ -184,7 +181,7 @@ const EditProfile = () => {
 
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

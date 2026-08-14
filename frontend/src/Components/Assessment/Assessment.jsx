@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Navbar from "./Navbar";
-import UserProfile from "./UserProfile";
+// import UserProfile from "./UserProfile";
 import FilterTabs from "./FilterTabs";
 import AssessmentCard from "./AssessmentCard";
 import StatsCard from "./StatsCard";
@@ -16,7 +16,7 @@ export default function Assessment() {
 
           <div className="flex min-h-0 flex-1 overflow-hidden">
             {/* Main content */}
-            <main className="flex-1 overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden px-1 py-3 sm:px-2">
+            <main className="flex-1 overflow-y-auto scrollbar-none [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden px-1 py-3 sm:px-2">
               {/* Page header */}
               <div className="mb-5 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                 <div>

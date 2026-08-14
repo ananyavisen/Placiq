@@ -5,13 +5,25 @@ import Schedule from "./Schedule";
 import Recommendations from "./Recommendations";
 import ProgressChart from "./ProgressChart";
 import SkillsOverview from "./SkillsOverview";
+import ProfileHeader from "../Common/ProfileHeader";
 
 export default function Dashboard() {
   return (
-    <div className="min-h-screen px-6 py-8">
-      <Welcome />
+    <div className="min-h-screen px-2">
 
+      {/* Top section */}
       <div className="grid grid-cols-1 lg:grid-cols-[2.25fr_1fr] gap-5">
+        
+        {/* Left */}
+        <Welcome />
+
+        {/* Right */}
+        <ProfileHeader />
+
+      </div>
+
+      {/* Main section */}
+      <div className="grid grid-cols-1 lg:grid-cols-[2.25fr_1fr] gap-5 mt-5">
 
         {/* Left section */}
         <div className="space-y-5">

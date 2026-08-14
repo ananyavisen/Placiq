@@ -4,7 +4,7 @@ import ImprovementItem from "./ImprovementItem";
 
 export default function ImprovementCard() {
   return (
-    <div className="rounded-3xl border mt-2 border-[#ECE8F8] bg-white/20 p-6 shadow-xl">
+    <div className="rounded-3xl border mt-2 border-[#ECE8F8] p-6 shadow-xl">
       {/* Header */}
       <div className="mb-5 flex items-start justify-between">
         <div>

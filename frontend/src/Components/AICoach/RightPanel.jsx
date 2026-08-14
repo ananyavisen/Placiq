@@ -6,6 +6,7 @@ import {
   GraduationCap,
   ExternalLink,
 } from "lucide-react";
+// import ProfileHeader from "../Common/ProfileHeader";
 
 const quickActions = [
   {
@@ -41,7 +42,7 @@ const suggestedPrompts = [
 const RightPanel = () => {
   return (
     <aside className="ai-right-panel">
-
+      {/* <ProfileHeader /> */}
       {/* Quick Actions */}
       <div className="ai-side-card">
 

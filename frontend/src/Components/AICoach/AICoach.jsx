@@ -2,22 +2,19 @@
 import logo from "../../assets/logo.png";
 import bg from "../../assets/bg.png";
 import React from "react";
-import Sidebar from "../Common/Sidebar";
-import TopBar from "./TopBar";
 import ChatPanel from "./ChatPanel";
 import RightPanel from "./RightPanel";
 import "./AICoach.css";
+import ProfileHeader from "../Common/ProfileHeader";
 
 const AICoach = () => {
   return (
-    <div
-  className="ai-coach-page"
-  style={{ backgroundImage: `url(${bg})` }}
->
-      <Sidebar />
+    
 
       <main className="ai-coach-main">
-        <TopBar />
+         <div className="ai-topbar">
+          <ProfileHeader />
+        </div>
 
         <div className="ai-coach-content">
           <div className="ai-coach-heading">
@@ -36,7 +33,7 @@ const AICoach = () => {
           </div>
         </div>
       </main>
-    </div>
+  
   );
 };
 

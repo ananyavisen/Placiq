@@ -2,7 +2,7 @@ import { FileText, Trash2 } from "lucide-react";
 
 export default function Uploaded() {
   return (
-    <div className="flex items-center justify-between rounded-2xl border border-[#ECE8F8] bg-white p-3">
+    <div className="flex items-center justify-between rounded-2xl border border-[#ECE8F8] bg-white/20 p-3">
       <div className="flex items-center gap-4">
         <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-red-50">
           <FileText className="text-red-500" />
