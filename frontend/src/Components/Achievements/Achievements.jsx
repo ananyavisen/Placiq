@@ -1,7 +1,5 @@
 import { useState } from "react";
 import { Trophy } from "lucide-react";
-import Sidebar from "../Assessment/Sidebar";
-import UserProfile from "../Assessment/UserProfile";
 import AchievementStats from "./AchievementStats";
 import AchievementFilters from "./AchievementFilters";
 import AchievementCard from "./AchievementCard";
@@ -20,16 +18,6 @@ export default function Achievements() {
 
   return (
     <div className="flex h-[calc(100dvh-2.5rem)] w-full flex-col overflow-hidden sm:h-[calc(100dvh-2rem)]">
-      <div className="flex min-h-0 flex-1 gap-3 overflow-hidden">
-        {/* ── Left: Sidebar ─────────────────────────────────────────────── */}
-        <Sidebar activeItem="Achievements" />
-
-        {/* ── Centre + Right wrapper ────────────────────────────────────── */}
-        <div className="flex min-w-0 flex-1 flex-col">
-          {/* Top bar */}
-          <div className="flex justify-end px-1 pb-1 pt-1">
-            <UserProfile />
-          </div>
 
           <div className="flex min-h-0 flex-1 overflow-hidden">
             {/* ── Centre: Main achievements panel ─────────────────────── */}
@@ -95,7 +83,5 @@ export default function Achievements() {
             </aside>
           </div>
         </div>
-      </div>
-    </div>
   );
 }
