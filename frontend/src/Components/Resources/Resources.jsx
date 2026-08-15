@@ -10,6 +10,7 @@ import {
   recommendedResources,
   continueLearning,
 } from "../../data/resources";
+import ProfileHeader from "../Common/ProfileHeader";
 
 export default function Resources() {
   const [activeCategory, setActiveCategory] = useState("all");
@@ -95,7 +96,8 @@ export default function Resources() {
             </main>
 
             {/* Right panel */}
-            <aside className="hidden w-72 shrink-0 overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden p-2 xl:block">
+            <aside className="hidden w-75 shrink-0 overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden p-2 xl:block">
+              <ProfileHeader />
               <FilterSection />
 
               <div className="mt-4 rounded-2xl border border-[#ECE4EF] bg-white p-4 shadow-sm">

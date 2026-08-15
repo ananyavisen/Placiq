@@ -12,7 +12,13 @@
 /* =========================
    PAGE TITLE
 ========================= */
-
+.roadmap-profile {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 10px;
+}
 .page-title {
   padding: 8px 0 14px;
 }

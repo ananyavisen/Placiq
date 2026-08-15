@@ -7,6 +7,7 @@ import MilestoneProgress from "./MilestoneProgress";
 import AchievementCategories from "./AchievementCategories";
 import ShareProgress from "./ShareProgress";
 import { achievements } from "../../data/achievements";
+import ProfileHeader from "../Common/ProfileHeader";
 
 export default function Achievements() {
   const [activeFilter, setActiveFilter] = useState("All");
@@ -74,7 +75,8 @@ export default function Achievements() {
             </main>
 
             {/* ── Right: Milestone / progress panel ───────────────────── */}
-            <aside className="hidden w-72 shrink-0 overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden p-2 xl:block">
+            <aside className="hidden w-75 shrink-0 overflow-y-auto scrollbar-none [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden p-2 xl:block">
+              <ProfileHeader />
               <MilestoneProgress />
               <AchievementCategories />
               <ShareProgress />

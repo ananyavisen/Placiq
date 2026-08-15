@@ -1,33 +1,21 @@
 import { Routes, Route } from "react-router-dom";
-
-// Common
-import SidebarLayout from "./Components/Common/SidebarLayout";
-import Background
- from "./Components/Common/Background";
-// Pages without Sidebar
-import Login from "./Components/Login/Login";
-import Error from "./Components/Error/Error";
-
-// Dashboard
- import Dashboard from "./Components/Dashboard/Dashboard"
-import ForgotPassword from "./Components/Auth/ForgotPassword"
-import ChangePassword from "./Components/Auth/ChangePassword"
-// Assessment
-import Assessment from "./Components/Assessment/Assessment";
-import Roadmap from "./Components/roadmap/Roadmap"
-//AI Coach
-import AICoach from "./Components/AICoach/AICoach";
-// Coding
-import CodeLayout from "./Components/Coding/CodeLayout";
-import Resources from "./Components/Resources/Resources";
-// Resume
-import ResumeLayout from "./Components/Resume/ResumeLayout";
-import Achievements from "./Components/Achievements/Achievements"
-// Job Tracker
-import JobLayout from "./Components/JobTracker/JobLayout";
-
-// Settings
-import EditProfile from "./Components/Settings/EditProfile";
+import SidebarLayout from "./Components/Common/SidebarLayout"; //Sidebar Layout
+import Background from "./Components/Common/Background"; //Background
+import Login from "./Components/Login/Login"; //Login
+import Error from "./Components/Error/Error"; // Error
+import Dashboard from "./Components/Dashboard/Dashboard"; // Dashboard
+import ForgotPassword from "./Components/Auth/ForgotPassword"; //Forgot Password 
+import ChangePassword from "./Components/Auth/ChangePassword"; //Change Password
+import Assessment from "./Components/Assessment/Assessment"; // Assessment
+import Roadmap from "./Components/roadmap/Roadmap"; //Roadmap
+import AICoach from "./Components/AICoach/AICoach"; //AI Coach
+import CodeLayout from "./Components/Coding/CodeLayout";// Coding
+import Resources from "./Components/Resources/Resources"; //Resources
+import ResumeLayout from "./Components/Resume/ResumeLayout"; // Resume
+import Achievements from "./Components/Achievements/Achievements"; //Achievements
+import JobLayout from "./Components/JobTracker/JobLayout"; // Job Tracker
+import EditProfile from "./Components/Settings/EditProfile"; // Settings
+import MockInterview from "./Components/Mock Interview/MockInterview"; //MockInterview
 
 function App() {
   return (
@@ -86,6 +74,11 @@ function App() {
         <Route
           path="/resources"
           element={<Resources />}
+        />
+        {/* Mock Interview */}
+        <Route
+          path="/mock-interviews"
+          element={<MockInterview />}
         />
 
         {/* Coding Practice */}

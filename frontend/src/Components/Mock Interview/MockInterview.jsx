@@ -11,6 +11,7 @@ import {
 import RoundHeader from "./RoundHeader";
 import AttemptsCard from "./AttemptsCard";
 import Insights from "./Insights";
+import ProfileHeader from "../Common/ProfileHeader";
 
 const hrAttempts = [
   {
@@ -111,8 +112,9 @@ function RoundCard({ data }) {
 export default function MockInterview() {
   return (
     <div className="mock-interview-page">
+    {/* Top Bar */}
+    <div className="mi-topbar">
 
-      {/* Search Bar */}
       <div className="mi-search-bar">
         <span className="mi-search-icon">⌕</span>
 
@@ -122,8 +124,12 @@ export default function MockInterview() {
         />
       </div>
 
-      {/* Page Heading */}
-      <div className="mi-page-heading">
+      <ProfileHeader />
+
+    </div>
+
+    {/* Page Heading */}
+    <div className="mi-page-heading">
         <h1>Mock Interviews</h1>
 
         <p>
@@ -137,7 +143,6 @@ export default function MockInterview() {
         {/* Left Content */}
         <section className="mi-content">
 
-          {/* Tabs */}
           <div className="mi-tabs">
 
             <button className="mi-tab active">
@@ -152,16 +157,16 @@ export default function MockInterview() {
 
           </div>
 
-          {/* HR Round */}
           <RoundCard data={hrData} />
 
-          {/* Written Round */}
           <RoundCard data={writtenData} />
 
         </section>
 
         {/* Right Side */}
-        <Insights />
+        <aside className="mi-sidebar">
+          <Insights />
+        </aside>
 
       </div>
     </div>

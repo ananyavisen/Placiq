@@ -13,6 +13,7 @@ import RecommendedLearning from "./RecommendedLearning";
 import Readiness from "./Readiness";
 import Milestones from "./Milestones";
 import FeatureStrip from "./FeatureStrip";
+import ProfileHeader from "../Common/ProfileHeader";
 
 
 const steps = [
@@ -122,85 +123,61 @@ export default function Roadmap() {
   return (
     <div className="roadmap-page">
 
-      {/* PAGE HEADING */}
+  {/* TOP RIGHT PROFILE */}
+  <div className="roadmap-profile">
+    <ProfileHeader />
+  </div>
 
-      <div className="page-title">
+  {/* PAGE HEADING */}
+  <div className="page-title">
+    <div>
+      <div className="title-line">
+        <h1>Your Placement Journey</h1>
 
-        <div>
-
-          <div className="title-line">
-
-            <h1>
-              Your Placement Journey
-            </h1>
-
-            <span className="title-sparkle">
-              <Sparkles size={24} />
-            </span>
-
-          </div>
-
-          <p>
-            Follow a structured path from learning
-            to placement ready.
-          </p>
-
-        </div>
-
+        <span className="title-sparkle">
+          <Sparkles size={24} />
+        </span>
       </div>
 
-
-      {/* THREE PANEL CONTENT */}
-
-      <div className="layout">
-
-        {/* MAIN ROADMAP */}
-
-        <section className="content">
-
-          <div className="roadmap">
-
-            {steps.map((step, index) => (
-
-              <RoadmapStep
-                key={step.number}
-                step={step}
-                expanded={expanded === index}
-                onToggle={() =>
-                  setExpanded(
-                    expanded === index
-                      ? null
-                      : index
-                  )
-                }
-              />
-
-            ))}
-
-          </div>
-
-
-          {/* FEATURE PROMOTION */}
-
-          <FeatureStrip />
-
-        </section>
-
-
-        {/* RIGHT PANEL */}
-
-        <aside className="right-panel">
-
-          <RecommendedLearning />
-
-          <Readiness />
-
-          <Milestones />
-
-        </aside>
-
-      </div>
-
+      <p>
+        Follow a structured path from learning
+        to placement ready.
+      </p>
     </div>
+  </div>
+
+  {/* CONTENT */}
+  <div className="layout">
+
+    <section className="content">
+
+      <div className="roadmap">
+        {steps.map((step, index) => (
+          <RoadmapStep
+            key={step.number}
+            step={step}
+            expanded={expanded === index}
+            onToggle={() =>
+              setExpanded(
+                expanded === index ? null : index
+              )
+            }
+          />
+        ))}
+      </div>
+
+      <FeatureStrip />
+
+    </section>
+
+    <aside className="right-panel">
+      <RecommendedLearning />
+      <Readiness />
+      <Milestones />
+    </aside>
+
+  </div>
+
+</div>
   );
 }

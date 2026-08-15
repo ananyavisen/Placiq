@@ -6,6 +6,7 @@ import AssessmentCard from "./AssessmentCard";
 import StatsCard from "./StatsCard";
 import RecommendationCard from "./RecommendationCard";
 import { assessments, filterTabs } from "../../data/assessments";
+import ProfileHeader from "../Common/ProfileHeader";
 
 export default function Assessment() {
   const [activeTab, setActiveTab] = useState("All");
@@ -60,7 +61,8 @@ export default function Assessment() {
             </main>
 
             {/* Right panel */}
-            <aside className="hidden w-72 shrink-0 overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden p-2 xl:block">
+            <aside className="hidden w-75 shrink-0 overflow-y-auto scrollbar-none [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden p-2 xl:block">
+              <ProfileHeader />
               <StatsCard />
               <RecommendationCard />
             </aside>
