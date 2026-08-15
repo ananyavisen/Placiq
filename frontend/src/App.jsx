@@ -30,7 +30,7 @@
 //   return <Settings />;
 // }
 
-// export default App;
+// // export default App;
 // import ForgotPassword from "./Components/Auth/ForgotPassword";
 
 // function App() {
