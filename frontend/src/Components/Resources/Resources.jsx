@@ -20,7 +20,7 @@ export default function Resources() {
       
 
           <div className="flex min-h-0 flex-1 overflow-hidden">
-            <main className="flex-1 overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden px-1 py-3 sm:px-2">
+            <main className="flex-1 overflow-y-auto scrollbar-none [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden px-1 py-3 sm:px-2">
               {/* Page header */}
               <div className="mb-4">
                 <div className="flex items-center gap-2">
@@ -64,7 +64,7 @@ export default function Resources() {
               </div>
 
               {/* Category cards */}
-              <div className="mb-6 flex gap-3 overflow-x-auto pb-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+              <div className="mb-6 flex gap-3 overflow-x-auto pb-2 scrollbar-none [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
                 {resourceCategories.map((category) => (
                   <CategoryCard
                     key={category.id}
@@ -96,7 +96,7 @@ export default function Resources() {
             </main>
 
             {/* Right panel */}
-            <aside className="hidden w-75 shrink-0 overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden p-2 xl:block">
+            <aside className="hidden w-75 shrink-0 overflow-y-auto scrollbar-none [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden p-2 xl:block">
               <ProfileHeader />
               <FilterSection />
 

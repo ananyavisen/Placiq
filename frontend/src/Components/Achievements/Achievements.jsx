@@ -22,7 +22,7 @@ export default function Achievements() {
 
           <div className="flex min-h-0 flex-1 overflow-hidden">
             {/* ── Centre: Main achievements panel ─────────────────────── */}
-            <main className="flex-1 overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden px-1 py-3 sm:px-2">
+            <main className="flex-1 overflow-y-auto scrollbar-none [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden px-1 py-3 sm:px-2">
               {/* Page header */}
               <div className="mb-5">
                 <div className="flex items-center gap-2">
