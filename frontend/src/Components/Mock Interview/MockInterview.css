@@ -1,0 +1,964 @@
+/* =========================================================
+   MOCK INTERVIEW PAGE
+========================================================= */
+
+.mock-interview-page {
+  width: 100%;
+  min-height: 100%;
+  padding: 0 20px 35px;
+  color: #17213d;
+  font-family: Inter, Arial, sans-serif;
+}
+
+.mock-interview-page * {
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.mi-page-heading {
+  margin: 8px 0 16px;
+}
+
+.mi-page-heading h1 {
+  margin: 0;
+  font-size: 30px;
+  line-height: 1.15;
+  font-weight: 500;
+  color: #17213d;
+}
+
+.mi-page-heading p {
+  margin: 7px 0 0;
+  color: #74798c;
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   PAGE GRID
+========================================================= */
+
+.mi-page-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 330px;
+  gap: 20px;
+  align-items: start;
+}
+
+.mi-content {
+  min-width: 0;
+}
+
+
+/* =========================================================
+   TABS
+========================================================= */
+
+.mi-tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid rgba(190, 180, 215, 0.25);
+}
+
+.mi-tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  min-width: 150px;
+  padding: 12px 20px;
+
+  border: none;
+  border-bottom: 2px solid transparent;
+
+  background: transparent;
+
+  color: #707589;
+  cursor: pointer;
+
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.mi-tab svg {
+  width: 19px;
+  height: 19px;
+  stroke-width: 1.8;
+}
+
+.mi-tab.active {
+  color: #7040d9;
+  border-bottom-color: #8050e7;
+}
+
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.mi-main-card,
+.mi-side-card {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(190, 180, 215, 0.28);
+  border-radius: 16px;
+}
+
+.mi-round-card {
+  margin-top: 14px;
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   ROUND HEADER
+========================================================= */
+
+.mi-round-header {
+  min-height: 112px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  padding: 22px;
+}
+
+.mi-round-icon {
+  width: 58px;
+  height: 58px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 15px;
+
+  color: #7948dc;
+  background: #f0e7ff;
+}
+
+.mi-round-icon svg {
+  width: 29px;
+  height: 29px;
+  stroke-width: 1.8;
+}
+
+.mi-round-description {
+  flex: 1;
+  min-width: 180px;
+}
+
+.mi-round-description h3 {
+  margin: 0 0 6px;
+
+  font-size: 15px;
+  font-weight: 500;
+
+  color: #27304a;
+}
+
+.mi-round-description p {
+  margin: 0;
+
+  max-width: 390px;
+
+  color: #777c8f;
+
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+.mi-round-details {
+  display: flex;
+  gap: 22px;
+  flex-shrink: 0;
+}
+
+.mi-detail-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  color: #7950db;
+}
+
+.mi-detail-item > svg {
+  width: 21px;
+  height: 21px;
+  stroke-width: 1.8;
+}
+
+.mi-detail-item div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.mi-detail-item span {
+  font-size: 10px;
+  color: #878b9b;
+}
+
+.mi-detail-item strong {
+  font-size: 12px;
+  color: #3c4258;
+}
+
+.mi-start-button {
+  border: none;
+
+  padding: 11px 16px;
+
+  border-radius: 8px;
+
+  color: white;
+
+  background: linear-gradient(
+    90deg,
+    #7844df,
+    #8751eb
+  );
+
+  font-size: 11px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  white-space: nowrap;
+
+  box-shadow: 0 4px 12px rgba(120, 68, 223, 0.15);
+}
+
+.mi-start-button:hover {
+  opacity: 0.94;
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+.mi-section-divider {
+  height: 1px;
+  background: rgba(190, 180, 215, 0.24);
+}
+
+
+/* =========================================================
+   ATTEMPTS
+========================================================= */
+
+.mi-attempts {
+  padding: 20px 26px 12px;
+}
+
+.mi-attempts-title {
+  margin: 0 0 8px;
+
+  color: #3b4258;
+
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.mi-attempts-list {
+  width: 100%;
+}
+
+
+/* =========================================================
+   ATTEMPT ROW
+========================================================= */
+
+.mi-attempt-row {
+  min-height: 58px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  border-bottom: 1px solid rgba(190, 180, 215, 0.18);
+}
+
+
+/* =========================================================
+   STATUS ICONS
+========================================================= */
+.mi-status-icon {
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex: 0 0 30px;
+
+  border-radius: 50%;
+}
+
+.mi-status-icon svg {
+  width: 16px;
+  height: 16px;
+  stroke-width: 2.2;
+}
+.mi-status-icon.success {
+  color: #35b978;
+  background: #e2f8eb;
+}
+
+/* Orange */
+.mi-status-icon.warning {
+  color: #e6a12c;
+  background: #fff1d5;
+}
+
+/* Red */
+.mi-status-icon.danger {
+  color: #ee6975;
+  background: #ffe5e8;
+}
+
+/* =========================================================
+   ATTEMPT INFORMATION
+========================================================= */
+
+.mi-attempt-info {
+  flex: 1;
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+.mi-attempt-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: #374057;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mi-attempt-date {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  font-size: 9px;
+  color: #85899a;
+}
+
+.mi-attempt-date span {
+  color: #85899a;
+}
+
+/* =========================================================
+   SCORE
+   IMPORTANT: matches AttemptsCard.jsx
+========================================================= */
+
+/* =========================================================
+   SCORE
+========================================================= */
+
+.mi-score {
+  width: 58px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+
+  flex: 0 0 58px;
+}
+
+.mi-score-label {
+  font-size: 8px;
+  color: #9295a4;
+}
+
+.mi-score-value {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.mi-score-value.success {
+  color: #35b978 !important;
+}
+
+.mi-score-value.warning {
+  color: #e6a12c !important;
+}
+
+.mi-score-value.danger {
+  color: #ee6975 !important;
+}
+
+/* =========================================================
+   VIEW REPORT BUTTON
+   IMPORTANT: matches AttemptsCard.jsx
+========================================================= */
+
+.mi-report-btn {
+  width: 100px;
+
+  height: 35px;
+
+  flex: 0 0 100px;
+
+  border: 1px solid #dfd7ed;
+  border-radius: 8px;
+
+  background: rgba(255, 255, 255, 0.55);
+
+  color: #7850d3;
+
+  font-size: 9px;
+
+  cursor: pointer;
+}
+
+.mi-report-btn:hover {
+  background: #f8f3ff;
+}
+
+/* =========================================================
+   VIEW ALL
+========================================================= */
+
+.mi-view-all {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 5px;
+
+  width: 100%;
+
+  padding: 14px 0 4px;
+
+  border: none;
+
+  background: transparent;
+
+  color: #7544d7;
+
+  font-size: 10px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.mi-view-all svg {
+  width: 14px;
+  height: 14px;
+}
+
+
+/* =========================================================
+   RIGHT COLUMN
+========================================================= */
+/* =========================================================
+   RIGHT COLUMN
+========================================================= */
+
+.mi-right-column {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.mi-side-card {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(190, 180, 215, 0.28);
+  border-radius: 16px;
+}
+
+
+/* =========================================================
+   OVERALL SUMMARY CARD
+========================================================= */
+
+.mi-summary-card {
+  padding: 18px 20px 16px;
+}
+
+
+/* Header */
+.mi-side-card-title.summary-title {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  margin: 0;
+}
+
+.summary-title-icon {
+  width: 28px;
+  height: 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 8px;
+
+  color: #7040d9;
+  background: #f1eaff;
+}
+
+.summary-title-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.mi-side-card-title h3 {
+  margin: 0;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  color: #30384f;
+}
+
+
+/* =========================================================
+   SCORE + RING
+========================================================= */
+
+.mi-score-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 15px 5px 16px;
+}
+
+
+/* Left score */
+.mi-score-inner {
+  width: 92px;
+  height: 92px;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  flex-direction: column;
+
+  border-radius: 50%;
+
+  background: transparent;
+}
+
+.mi-score-inner strong {
+  font-size: 27px;
+  line-height: 1;
+
+  color: #17213d;
+}
+
+.mi-score-inner span {
+  margin-top: 7px;
+
+  font-size: 8px;
+  line-height: 1.2;
+
+  color: #85899a;
+
+  white-space: nowrap;
+}
+
+
+/* Ring */
+/* =========================================================
+   MULTI COLOR DONUT
+========================================================= */
+
+.mi-score-ring {
+  width: 82px;
+  height: 82px;
+
+  flex: 0 0 82px;
+
+  border-radius: 50%;
+
+  background: conic-gradient(
+    #7845dc 0deg 72deg,
+    #e8a13a 72deg 144deg,
+    #54b77d 144deg 216deg,
+    #ef6c78 216deg 288deg,
+    #bca9ed 288deg 360deg
+  );
+
+  position: relative;
+}
+
+
+/* White center = DONUT effect */
+
+.mi-score-ring::after {
+  content: "";
+
+  position: absolute;
+
+  width: 58px;
+  height: 58px;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background: #ffffff;
+}
+
+
+/* Don't show old score text inside ring */
+
+.mi-score-ring .mi-score-inner {
+  display: none;
+}
+
+/* =========================================================
+   SUMMARY LIST
+========================================================= */
+
+.mi-summary-list {
+  border-top: 1px solid rgba(190, 180, 215, 0.22);
+
+  padding-top: 10px;
+}
+
+.mi-summary-list > div {
+  min-height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  font-size: 10px;
+}
+
+.mi-summary-list span {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  color: #74798c;
+}
+
+.mi-summary-list strong {
+  font-size: 10px;
+  font-weight: 600;
+
+  color: #454b60;
+}
+
+
+/* Colored dots */
+
+.mi-summary-dot {
+  width: 8px;
+  height: 8px;
+
+  display: inline-block;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+}
+
+.mi-summary-dot.purple {
+  background: #8050df;
+}
+
+.mi-summary-dot.orange {
+  background: #e8a044;
+}
+
+.mi-summary-dot.green {
+  background: #54b77d;
+}
+
+.mi-summary-dot.red {
+  background: #ef6e78;
+}
+
+
+/* =========================================================
+   INSIGHTS
+========================================================= */
+
+.mi-insights-card {
+  padding: 20px;
+}
+
+.mi-insights-card > h3 {
+  margin-bottom: 0;
+}
+
+.mi-insight-box {
+  display: flex;
+
+  gap: 11px;
+
+  margin-top: 13px;
+
+  padding: 13px;
+
+  border-radius: 12px;
+
+  background: rgba(250, 248, 255, 0.75);
+}
+
+.mi-insight-icon {
+  width: 32px;
+  height: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 9px;
+}
+
+.mi-insight-icon svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 1.8;
+}
+
+.mi-insight-box.strength .mi-insight-icon {
+  color: #54a977;
+  background: #e4f8ed;
+}
+
+.mi-insight-box.improve .mi-insight-icon {
+  color: #e7a63a;
+  background: #fff1d9;
+}
+
+.mi-insight-box.suggestion .mi-insight-icon {
+  color: #e56f7a;
+  background: #ffe8ea;
+}
+
+.mi-insight-box strong {
+  display: block;
+
+  margin-bottom: 4px;
+
+  font-size: 10px;
+  font-weight: 600;
+
+  color: #41475c;
+}
+
+.mi-insight-box p {
+  margin: 0;
+
+  color: #818596;
+
+  font-size: 9px;
+  line-height: 1.5;
+}
+
+.mi-analysis-button {
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 5px;
+
+  margin-top: 15px;
+
+  padding: 10px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  color: white;
+
+  background: linear-gradient(
+    90deg,
+    #7844df,
+    #8954eb
+  );
+
+  font-size: 10px;
+
+  cursor: pointer;
+}
+
+.mi-analysis-button:hover {
+  opacity: 0.94;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .mi-page-grid {
+    grid-template-columns:
+      minmax(0, 1fr) 280px;
+  }
+
+  .mi-round-header {
+    flex-wrap: wrap;
+  }
+
+  .mi-round-description {
+    min-width: 220px;
+  }
+}
+
+
+@media (max-width: 850px) {
+
+  .mock-interview-page {
+    padding: 0 18px 30px;
+  }
+
+  .mi-page-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mi-right-column {
+    grid-row: 2;
+  }
+}
+
+
+@media (max-width: 650px) {
+
+  .mi-round-details {
+    width: 100%;
+  }
+
+  .mi-start-button {
+    width: 100%;
+  }
+
+  .mi-attempt-row {
+    gap: 8px;
+  }
+
+  .mi-score {
+    display: none;
+  }
+
+  .mi-report-btn {
+    width: 80px;
+  }
+
+  .mi-page-heading h1 {
+    font-size: 25px;
+  }
+
+  .mi-round-header {
+    padding: 18px;
+  }
+
+  .mi-tabs {
+    overflow-x: auto;
+  }
+}
+.mi-score-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
+}
+
+.mi-score-info strong {
+  font-size: 27px;
+  line-height: 1;
+  color: #17213d;
+}
+
+.mi-score-info span {
+  margin-top: 7px;
+  font-size: 8px;
+  color: #85899a;
+  white-space: nowrap;
+}
+/* =========================================================
+   SEARCH BAR
+========================================================= */
+
+.mi-search-bar {
+  width: 900px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  margin: 0 0 16px;
+
+  padding: 0 14px;
+
+  border: 1px solid rgba(190, 180, 215, 0.35);
+  border-radius: 22px;
+
+  background: rgba(255, 255, 255, 0.72);
+
+  backdrop-filter: blur(8px);
+}
+
+.mi-search-icon {
+  font-size: 20px;
+  line-height: 1;
+  color: #59657d;
+  transform: rotate(-20deg);
+}
+
+.mi-search-bar input {
+  width: 100%;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  color: #30384f;
+
+  font-family: inherit;
+  font-size: 12px;
+}
+
+.mi-search-bar input::placeholder {
+  color: #69748c;
+}
