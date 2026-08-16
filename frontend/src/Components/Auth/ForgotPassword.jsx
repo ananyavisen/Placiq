@@ -1,6 +1,7 @@
 import { ArrowLeft, Mail, Send, Headphones } from "lucide-react";
 import logo from "../../assets/logo.png";
 import forgotPasswordImg from "../../assets/forgot-password.png";
+import { Link } from "react-router-dom";
 
 export default function ForgotPassword() {
   return (
@@ -31,10 +32,11 @@ export default function ForgotPassword() {
 
         {/* Back to Login */}
         <div className="mb-1 w-full max-w-2xl">
+          <Link to="/login">
           <button className="flex items-center gap-2 text-[14px] font-medium text-[#6C3CF0] hover:underline">
             <ArrowLeft size={18} />
             Back to Login
-          </button>
+          </button></Link>
         </div>
 
         {/* Heading */}

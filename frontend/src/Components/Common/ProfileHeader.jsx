@@ -1,7 +1,16 @@
-import { Bell, ChevronDown, Settings } from "lucide-react";
-import profile from "../../assets/profile.jpg"; // replace with your image
+import {
+  Bell,
+  Settings,
+  User,
+  LogOut,
+} from "lucide-react";
+import profile from "../../assets/profile.jpg";
+import { Link } from "react-router-dom";
+import { useState } from "react";
 
 export default function ProfileHeader() {
+  const [showDropdown, setShowDropdown] = useState(false);
+
   return (
     <div className="flex items-center gap-5 mb-8 ml-7">
 
@@ -12,7 +21,7 @@ export default function ProfileHeader() {
       </button>
 
       {/* Profile */}
-      <div className="flex items-center gap-3 cursor-pointer">
+      <div className="flex items-center gap-3">
 
         <img
           src={profile}
@@ -30,13 +39,44 @@ export default function ProfileHeader() {
           </p>
         </div>
 
-        <Settings
-          size={18}
-          className="text-gray-500"
-        />
+        {/* Settings Dropdown */}
+        <div className="relative">
+          <button
+            onClick={() => setShowDropdown(!showDropdown)}
+            className="p-1"
+          >
+            <Settings
+              size={18}
+              className="text-gray-500 cursor-pointer"
+            />
+          </button>
+
+          {showDropdown && (
+            <div className="absolute right-0 top-8 w-44 bg-white border border-gray-200 rounded-lg shadow-lg py-1 z-50">
+
+              {/* Profile Settings */}
+              <Link
+                to="/settings"
+                className="flex items-center gap-3 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+              >
+                <User size={16} />
+                Profile Settings
+              </Link>
+
+              {/* Logout */}
+              <Link
+                to="/login"
+                className="flex items-center gap-3 px-4 py-2 text-sm text-red-600 hover:bg-gray-100"
+              >
+                <LogOut size={16} />
+                Logout
+              </Link>
+
+            </div>
+          )}
+        </div>
 
       </div>
-
     </div>
   );
 }

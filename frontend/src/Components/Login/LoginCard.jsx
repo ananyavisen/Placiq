@@ -7,7 +7,7 @@
   } from "lucide-react";
   
   import { useState } from "react";
-
+ import { Link } from "react-router-dom";
  import Github from "../icons/github";
  import Linkedin from "../icons/linkedin";
  import Gmail from "../icons/gmail";
@@ -129,10 +129,10 @@
         {/* Forgot Password */}
   
         <div className="mt-4 text-right">
-  
+          <Link to="/forgot-password">
           <button type="button" className="font-[Inter] text-sm font-medium text-[#8B72D6] transition hover:text-[#EA7567]">
             Forgot password?
-          </button>
+          </button></Link>
   
         </div>
   

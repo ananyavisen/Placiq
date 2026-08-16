@@ -1,4 +1,5 @@
 import { Camera, Pencil } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const ProfileSection = () => {
   return (
@@ -50,7 +51,7 @@ const ProfileSection = () => {
               </p>
 
               <p className="text-[17px] font-semibold text-[#1F245C]">
-                Anekvarna
+                User
               </p>
             </div>
 
@@ -80,11 +81,12 @@ const ProfileSection = () => {
         </div>
 
         {/* Edit Profile */}
+        <Link to="/profile">
         <button className="flex items-center gap-2 rounded-xl border border-[#8B5CF6] bg-white/60 px-5 py-2.5 text-[14px] font-medium text-[#6C3CF0] transition hover:bg-[#EEE7FF]">
           <Pencil size={16} />
           Edit Profile
         </button>
-
+        </Link>
       </div>
     </div>
   );

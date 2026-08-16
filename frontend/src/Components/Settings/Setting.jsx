@@ -2,13 +2,22 @@ import ProfileSection from "./ProfileSection";
 import CareerPreferences from "./CareerPreferences";
 import Notifications from "./Notifications";
 import Security from "./Security";
+import { Link } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
 
 const Settings = () => {
   return (
     <div className="min-h-screen px-6 py-8">
 
           <main className="mt-8">
-            <h1 className="text-[36px] font-bold text-[#1F245C]">
+          <div className="mb-5 w-full max-w-2xl">
+          <Link to="/dashboard">
+          <button className="flex items-center gap-2 text-[14px] font-medium text-[#6C3CF0] hover:underline">
+            <ArrowLeft size={18} />
+            Back to Dashboard
+          </button></Link>
+        </div>
+            <h1 className="text-[26px] font-bold text-[#1F245C]">
               Settings
             </h1>
 

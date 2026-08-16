@@ -21,6 +21,7 @@ import adobeLogo from "../../assets/adobe.png";
 import amazonLogo from "../../assets/amazon.png";
 import netflixLogo from "../../assets/netflix.png";
 import metaLogo from "../../assets/meta.png";
+import { Link } from "react-router-dom";
 
 export const navItems = [
   { label: "Dashboard", icon: "layout-dashboard", path: "/dashboard" },
@@ -143,14 +144,14 @@ export default function Sidebar({ activeItem = "Assessments" }) {
             </span>
           )}
         </div>
-
+        <Link to="/settings">
         <button
           type="button"
           className="mt-2 flex w-full items-center justify-center gap-1 rounded-lg bg-[#8B5CF6] py-1.5 font-[Manrope] text-[11px] font-semibold text-white transition hover:bg-[#7C3AED]"
         >
           Edit Goal
           <ChevronRight size={14} strokeWidth={2.5} />
-        </button>
+        </button></Link>
       </div>
 
       {/* Support */}

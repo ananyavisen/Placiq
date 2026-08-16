@@ -14,8 +14,11 @@ import Resources from "./Components/Resources/Resources"; //Resources
 import ResumeLayout from "./Components/Resume/ResumeLayout"; // Resume
 import Achievements from "./Components/Achievements/Achievements"; //Achievements
 import JobLayout from "./Components/JobTracker/JobLayout"; // Job Tracker
-import EditProfile from "./Components/Settings/EditProfile"; // Settings
+import Setting from "./Components/Settings/Setting"; // Settings
+import EditProfile from "./Components/Settings/EditProfile"; //Edit Profile
 import MockInterview from "./Components/Mock Interview/MockInterview"; //MockInterview
+import ProfileHeader from "./Components/Common/ProfileHeader";
+import { Settings } from "lucide-react";
 
 function App() {
   return (
@@ -104,10 +107,16 @@ function App() {
         {/* Profile / Settings */}
         <Route
           path="/settings"
+          element={<Setting />}
+        />
+        <Route
+          path="/profile"
           element={<EditProfile />}
         />
 
       </Route>
+
+        <Route path="forgot-password" element={<ForgotPassword />} />
 
       {/* =========================
           404
