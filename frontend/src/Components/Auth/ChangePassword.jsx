@@ -10,9 +10,9 @@ import changePasswordImg from "../../assets/change-password.png";
 
 const ChangePassword = () => {
   return (
-    <div className="px-6 py-8">
+    <div className="px-2 py-2">
       {/* Logo */}
-      <div className="ml-8 mt-2 flex items-center gap-3">
+      <div className="ml-6 flex items-center gap-3">
         <img
           src={logo}
           alt="Placiq"
@@ -33,10 +33,10 @@ const ChangePassword = () => {
       </div>
 
       {/* Main Content */}
-      <div className="mx-auto mt-8 flex max-w-4xl flex-col items-center">
+      <div className="mx-auto -mt-12 flex max-w-4xl flex-col items-center">
 
         {/* Back to Settings */}
-        <div className="mb-5 w-full max-w-2xl">
+        <div className="mb-2 w-full max-w-2xl">
           <button className="flex items-center gap-2 text-[14px] font-medium text-[#6C3CF0] hover:underline">
             <ArrowLeft size={18} />
             Back to Settings
@@ -44,41 +44,41 @@ const ChangePassword = () => {
         </div>
 
         {/* Heading */}
-        <div className="mb-7 text-center">
-          <h1 className="text-[36px] font-bold text-[#1F245C]">
+        <div className="mb-0 -mt-4 text-center">
+          <h1 className="text-[32px] font-bold text-[#1F245C]">
             Change Password
           </h1>
 
-          <p className="mt-2 text-[16px] text-[#6B7280]">
+          <p className="-mt-1 text-[14px] text-[#6B7280]">
             Keep your account secure with a strong password.
           </p>
         </div>
 
         {/* Password Card */}
-        <div className="w-full max-w-2xl rounded-3xl border border-white/60 bg-white/85 p-10 shadow-[0_10px_35px_rgba(80,60,120,0.08)] backdrop-blur-sm">
+        <div className="w-full max-w-2xl rounded-3xl border border-white/60 bg-white/85 px-5 py-1 shadow-[0_10px_35px_rgba(80,60,120,0.08)] backdrop-blur-sm">
 
           {/* Illustration */}
-          <div className="flex justify-center">
+          <div className="-mt-6 flex justify-center">
             <img
               src={changePasswordImg}
               alt="Change password"
-              className="h-44 w-44 object-contain"
+              className="h-28 w-28 object-contain"
             />
           </div>
 
           {/* Card Heading */}
-          <div className="mt-2 text-center">
-            <h2 className="text-[22px] font-semibold text-[#1F245C]">
+          <div className="-mt-7 text-center">
+            <h2 className="text-[20px] font-semibold text-[#1F245C]">
               Update your password
             </h2>
 
-            <p className="mt-1 text-[14px] text-[#6B7280]">
+            <p className="mt-0 text-[12px] text-[#6B7280]">
               Enter your current password and choose a new one.
             </p>
           </div>
 
           {/* Current Password */}
-          <div className="mt-7">
+          <div className="mt-0">
             <label className="text-[13px] font-medium text-[#1F245C]">
               Current Password
             </label>
@@ -92,7 +92,7 @@ const ChangePassword = () => {
               <input
                 type="password"
                 placeholder="Enter current password"
-                className="h-12 w-full rounded-xl border border-[#D9DCE5] bg-white px-11 pr-12 text-[14px] text-[#1F245C] outline-none transition focus:border-[#8B5CF6]"
+                className="h-9 w-full rounded-xl border border-[#D9DCE5] bg-white px-11 pr-12 text-[14px] text-[#1F245C] outline-none transition focus:border-[#8B5CF6]"
               />
 
               <button
@@ -105,7 +105,7 @@ const ChangePassword = () => {
           </div>
 
           {/* New Password */}
-          <div className="mt-5">
+          <div className="mt-0">
             <label className="text-[13px] font-medium text-[#1F245C]">
               New Password
             </label>
@@ -119,7 +119,7 @@ const ChangePassword = () => {
               <input
                 type="password"
                 placeholder="Enter new password"
-                className="h-12 w-full rounded-xl border border-[#D9DCE5] bg-white px-11 pr-12 text-[14px] text-[#1F245C] outline-none transition focus:border-[#8B5CF6]"
+                className="h-9 w-full rounded-xl border border-[#D9DCE5] bg-white px-11 pr-12 text-[14px] text-[#1F245C] outline-none transition focus:border-[#8B5CF6]"
               />
 
               <button
@@ -131,14 +131,14 @@ const ChangePassword = () => {
             </div>
 
             {/* Password Hint */}
-            <p className="mt-2 text-[12px] text-[#6B7280]">
+            <p className="mt-0.5 text-[11px] text-[#6B7280]">
               Use at least 8 characters with a mix of letters, numbers and
               symbols.
             </p>
           </div>
 
           {/* Confirm Password */}
-          <div className="mt-5">
+          <div className="mt-0">
             <label className="text-[13px] font-medium text-[#1F245C]">
               Confirm New Password
             </label>
@@ -152,7 +152,7 @@ const ChangePassword = () => {
               <input
                 type="password"
                 placeholder="Confirm new password"
-                className="h-12 w-full rounded-xl border border-[#D9DCE5] bg-white px-11 pr-12 text-[14px] text-[#1F245C] outline-none transition focus:border-[#8B5CF6]"
+                className="h-9 w-full rounded-xl border border-[#D9DCE5] bg-white px-11 pr-12 text-[14px] text-[#1F245C] outline-none transition focus:border-[#8B5CF6]"
               />
 
               <button
@@ -165,12 +165,12 @@ const ChangePassword = () => {
           </div>
 
           {/* Update Button */}
-          <button className="mt-7 h-12 w-full rounded-xl bg-[#6C3CF0] text-[15px] font-medium text-white shadow-sm transition hover:bg-[#5B2FDC]">
+          <button className="mt-0.5 h-10 w-full rounded-xl bg-[#6C3CF0] text-[15px] font-medium text-white shadow-sm transition hover:bg-[#5B2FDC]">
             Update Password
           </button>
 
           {/* Security Note */}
-          <div className="mt-5 flex items-start gap-3 rounded-xl bg-[#F7F4FF] px-4 py-3">
+          <div className="mt-1 flex items-start gap-2 rounded-xl bg-[#F7F4FF] px-3 py-0.5">
             <LockKeyhole
               size={17}
               className="mt-0.5 shrink-0 text-[#6C3CF0]"
@@ -184,10 +184,10 @@ const ChangePassword = () => {
         </div>
 
         {/* Support */}
-        <div className="mt-6 flex w-full max-w-2xl items-center justify-between rounded-2xl border border-white/70 bg-white/75 px-6 py-4 shadow-sm backdrop-blur-sm">
+        <div className="mt-0 flex w-full max-w-2xl items-center justify-between rounded-2xl border border-white/70 bg-white/75 px-4 py-1.5 shadow-sm backdrop-blur-sm">
 
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#EEE8FF] text-[#6C3CF0]">
+            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#EEE8FF] text-[#6C3CF0]">
               <Headphones size={19} />
             </div>
 
@@ -196,7 +196,7 @@ const ChangePassword = () => {
                 Need help?
               </p>
 
-              <p className="text-[12px] text-[#6B7280]">
+              <p className="text-[11px] text-[#6B7280]">
                 Contact our support team if you're having trouble.
               </p>
             </div>
