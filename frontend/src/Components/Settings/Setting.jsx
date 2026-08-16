@@ -11,7 +11,7 @@ const Settings = () => {
 
           <main className="mt-8">
           <div className="mb-5 w-full max-w-2xl">
-          <Link to="/dashboard">
+          <Link to="/">
           <button className="flex items-center gap-2 text-[14px] font-medium text-[#6C3CF0] hover:underline">
             <ArrowLeft size={18} />
             Back to Dashboard

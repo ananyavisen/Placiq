@@ -53,7 +53,7 @@ function App() {
 
         {/* Dashboard */}
         <Route
-          path="/dashboard"
+          path="/"
           element={<Dashboard />}
         />
 
