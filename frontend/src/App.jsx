@@ -31,7 +31,7 @@ function App() {
           ========================= */}
 
       <Route
-        path="/login"
+        path="/"
         element={<Login />}
       />
 
@@ -53,7 +53,7 @@ function App() {
 
         {/* Dashboard */}
         <Route
-          path="/"
+          path="/dashboard"
           element={<Dashboard />}
         />
 
