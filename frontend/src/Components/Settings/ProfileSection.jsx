@@ -1,10 +1,39 @@
 import { Camera, Pencil } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 const ProfileSection = () => {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const getUser = async () => {
+      try {
+        const response = await fetch(
+          "http://localhost:8000/api/auth/me/",
+          {
+            credentials: "include",
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error("User is not authenticated");
+        }
+
+        const data = await response.json();
+
+        console.log("Current user:", data);
+
+        setUser(data);
+      } catch (error) {
+        console.error("Failed to get current user:", error);
+      }
+    };
+
+    getUser();
+  }, []);
+
   return (
     <div className="w-full rounded-2xl border border-white/60 bg-white/70 p-6 shadow-sm backdrop-blur-sm">
-
       {/* Heading */}
       <div className="mb-6">
         <h2 className="text-[20px] font-semibold text-[#1F245C]">
@@ -18,13 +47,11 @@ const ProfileSection = () => {
 
       {/* Profile Content */}
       <div className="flex items-center justify-between">
-
         {/* Left: Photo + Details */}
         <div className="flex items-center gap-5">
 
           {/* Profile Photo */}
           <div className="relative h-24 w-24 shrink-0">
-
             <img
               src="https://i.pravatar.cc/100?img=32"
               alt="Profile"
@@ -38,7 +65,6 @@ const ProfileSection = () => {
             >
               <Camera size={15} />
             </button>
-
           </div>
 
           {/* User Information */}
@@ -51,7 +77,7 @@ const ProfileSection = () => {
               </p>
 
               <p className="text-[17px] font-semibold text-[#1F245C]">
-                User
+                {user?.name || "User"}
               </p>
             </div>
 
@@ -62,18 +88,7 @@ const ProfileSection = () => {
               </p>
 
               <p className="text-[15px] text-[#1F245C]">
-                xyz@gmail.com
-              </p>
-            </div>
-
-            {/* Phone */}
-            <div>
-              <p className="text-[13px] text-[#6B7280]">
-                Phone Number
-              </p>
-
-              <p className="text-[15px] text-[#1F245C]">
-                +91 XXXXXXXXXX
+                {user?.email || "Not available"}
               </p>
             </div>
 
@@ -82,10 +97,10 @@ const ProfileSection = () => {
 
         {/* Edit Profile */}
         <Link to="/profile">
-        <button className="flex items-center gap-2 rounded-xl border border-[#8B5CF6] bg-white/60 px-5 py-2.5 text-[14px] font-medium text-[#6C3CF0] transition hover:bg-[#EEE7FF]">
-          <Pencil size={16} />
-          Edit Profile
-        </button>
+          <button className="flex items-center gap-2 rounded-xl border border-[#8B5CF6] bg-white/60 px-5 py-2.5 text-[14px] font-medium text-[#6C3CF0] transition hover:bg-[#EEE7FF]">
+            <Pencil size={16} />
+            Edit Profile
+          </button>
         </Link>
       </div>
     </div>
@@ -93,3 +108,4 @@ const ProfileSection = () => {
 };
 
 export default ProfileSection;
+

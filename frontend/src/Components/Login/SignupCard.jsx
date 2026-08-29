@@ -28,11 +28,38 @@ import {
       const handleSubmit = async (e) => {
         e.preventDefault();
     
-        console.log("Signup:", formData);
+        if (formData.password !== formData.confirmPassword) {
+            alert("Passwords do not match.");
+            return;
+        }
     
-        // Later:
-        // await authService.signup(formData);
-      };
+        try {
+            const response = await fetch(
+                "http://127.0.0.1:8000/api/auth/signup/",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(formData),
+                }
+            );
+    
+            const data = await response.json();
+    
+            if (response.ok) {
+                console.log("Signup successful:", data);
+                alert("Account created successfully!");
+            } else {
+                console.log("Signup failed:", data);
+                alert("Signup failed.");
+            }
+    
+        } catch (error) {
+            console.error("Error connecting to server:", error);
+            alert("Could not connect to server.");
+        }
+    };
 
     return (
       <div className=" w-full

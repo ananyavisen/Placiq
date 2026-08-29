@@ -11,26 +11,73 @@
  import Github from "../icons/github";
  import Linkedin from "../icons/linkedin";
  import Gmail from "../icons/gmail";
+ import { useNavigate } from "react-router-dom";
 
   export default function LoginCard({onSignup}) {
     const [formData, setFormData] = useState({
       email: "",
       password: "",
     });
-  
+    const navigate = useNavigate();
+    const [error, setError] = useState("");
+
     const handleChange = (e) => {
+      setError("");
+  
       setFormData((prev) => ({
-        ...prev,
-        [e.target.name]: e.target.value,
+          ...prev,
+          [e.target.name]: e.target.value,
       }));
-    };
+  };
   
     const handleSubmit = async (e) => {
       e.preventDefault();
+      setError("");
   
-      console.log("Login:", formData);
+      try {
+          // Get CSRF token
+          const csrfResponse = await fetch(
+              "http://localhost:8000/api/auth/csrf/",
+              {
+                  credentials: "include",
+              }
+          );
   
-      // Backend API call will go here
+          if (!csrfResponse.ok) {
+              throw new Error("Failed to get CSRF token");
+          }
+  
+          const csrfData = await csrfResponse.json();
+  
+          // Login
+          const response = await fetch(
+              "http://localhost:8000/api/auth/login/",
+              {
+                  method: "POST",
+                  headers: {
+                      "Content-Type": "application/json",
+                      "X-CSRFToken": csrfData.csrfToken,
+                  },
+                  credentials: "include",
+                  body: JSON.stringify(formData),
+              }
+          );
+  
+          const data = await response.json();
+  
+          if (response.ok) {
+              navigate("/dashboard");
+          } else {
+              setError(
+                  data.non_field_errors?.[0] ||
+                  "Invalid email or password."
+              );
+          }
+  
+      } catch (error) {
+          console.error("Login error:", error);
+          setError("Unable to connect to the server.");
+      }
   };
 
     return (
@@ -125,7 +172,11 @@
           </div>
   
         </div>
-  
+        {error && (
+            <p className="mt-3 text-sm font-medium text-red-500">
+                {error}
+            </p>
+        )}
         {/* Forgot Password */}
   
         <div className="mt-4 text-right">

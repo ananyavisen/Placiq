@@ -5,11 +5,48 @@ import {
   LogOut,
 } from "lucide-react";
 import profile from "../../assets/profile.jpg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 export default function ProfileHeader() {
+  const navigate = useNavigate();
+
   const [showDropdown, setShowDropdown] = useState(false);
+
+  const handleLogout = async () => {
+    try {
+        // Get CSRF token
+        const csrfResponse = await fetch(
+            "http://localhost:8000/api/auth/csrf/",
+            {
+                credentials: "include",
+            }
+        );
+
+        const csrfData = await csrfResponse.json();
+
+        // Logout
+        const response = await fetch(
+            "http://localhost:8000/api/auth/logout/",
+            {
+                method: "POST",
+                headers: {
+                    "X-CSRFToken": csrfData.csrfToken,
+                },
+                credentials: "include",
+            }
+        );
+
+        if (response.ok) {
+            navigate("/");
+        } else {
+            console.error("Logout failed");
+        }
+
+    } catch (error) {
+        console.error("Logout error:", error);
+    }
+};
 
   return (
     <div className="flex items-center gap-5 mb-8 ml-7">
@@ -64,13 +101,13 @@ export default function ProfileHeader() {
               </Link>
 
               {/* Logout */}
-              <Link
-                to="/login"
-                className="flex items-center gap-3 px-4 py-2 text-sm text-red-600 hover:bg-gray-100"
+              <button
+                  onClick={handleLogout}
+                  className="flex w-full items-center gap-3 px-4 py-2 text-sm text-red-600 hover:bg-gray-100"
               >
-                <LogOut size={16} />
-                Logout
-              </Link>
+                  <LogOut size={16} />
+                  Logout
+              </button>
 
             </div>
           )}

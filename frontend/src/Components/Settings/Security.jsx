@@ -1,6 +1,43 @@
 import { Lock, ShieldCheck, LogOut } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 
 const Security = () => {
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      // Get CSRF token
+      const csrfResponse = await fetch(
+        "http://localhost:8000/api/auth/csrf/",
+        {
+          credentials: "include",
+        }
+      );
+
+      const csrfData = await csrfResponse.json();
+
+      // Logout
+      const response = await fetch(
+        "http://localhost:8000/api/auth/logout/",
+        {
+          method: "POST",
+          headers: {
+            "X-CSRFToken": csrfData.csrfToken,
+          },
+          credentials: "include",
+        }
+      );
+
+      if (response.ok) {
+        navigate("/");
+      } else {
+        console.error("Logout failed");
+      }
+    } catch (error) {
+      console.error("Logout error:", error);
+    }
+  };
+
   return (
     <div className="w-full rounded-2xl border border-white/60 bg-white/70 p-6 shadow-sm backdrop-blur-sm">
 
@@ -36,9 +73,11 @@ const Security = () => {
             </div>
           </div>
 
+          <Link to="/change-password">
           <button className="rounded-xl bg-[#EEE8FF] px-4 py-2 text-[13px] font-medium text-[#6C3CF0]">
             Change
           </button>
+        </Link>
         </div>
 
         {/* Two Factor Authentication */}
@@ -82,7 +121,7 @@ const Security = () => {
             </div>
           </div>
 
-          <button className="rounded-xl bg-[#FFF0F3] px-4 py-2 text-[13px] font-medium text-[#E11D48]">
+          <button onClick={handleLogout} className="rounded-xl bg-[#FFF0F3] px-4 py-2 text-[13px] font-medium text-[#E11D48]">
             Log Out
           </button>
         </div>
