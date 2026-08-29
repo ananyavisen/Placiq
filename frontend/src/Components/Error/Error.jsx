@@ -1,4 +1,5 @@
 import error404 from "../../assets/error.png";
+import { Link } from "react-router-dom";
 
 const Error = () => {
   return (
@@ -24,6 +25,7 @@ const Error = () => {
         </p>
 
         {/* Go to Dashboard */}
+        <Link to="/" >
         <button
           className="
             flex items-center justify-center gap-2
@@ -38,9 +40,10 @@ const Error = () => {
             active:translate-y-0
           "
         >
+          
           <span className="text-xl leading-none">⌂</span>
           Go to Dashboard
-        </button>
+        </button></Link>
 
       </div>
     </div>
