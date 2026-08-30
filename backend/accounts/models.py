@@ -33,10 +33,14 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractBaseUser, PermissionsMixin):
-
     # Basic Information
     name = models.CharField(max_length=100)
     email = models.EmailField(unique=True)
+    profile_photo = models.ImageField(
+        upload_to="profile_photos/",
+        blank=True,
+        null=True
+    )
 
     # Career Preferences
     target_role = models.CharField(
@@ -67,7 +71,6 @@ class User(AbstractBaseUser, PermissionsMixin):
     # Account Information
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
-
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

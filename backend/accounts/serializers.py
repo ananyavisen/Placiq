@@ -1,6 +1,8 @@
 from rest_framework import serializers
 from .models import User
 from django.contrib.auth import authenticate
+from django.contrib.auth.password_validation import validate_password
+from django.core.exceptions import ValidationError
 
 class SignupSerializer(serializers.ModelSerializer):
 
@@ -33,10 +35,17 @@ class SignupSerializer(serializers.ModelSerializer):
         if data["password"] != data["confirmPassword"]:
             raise serializers.ValidationError({
                 "confirmPassword": "Passwords do not match."
-            })
+        })
+
+        try:
+            validate_password(data["password"], self.instance)
+        except ValidationError as e:
+            raise serializers.ValidationError({
+                "password": e.messages
+        })
 
         return data
-
+   
     def create(self, validated_data):
         validated_data.pop("confirmPassword")
 
@@ -49,10 +58,15 @@ class SignupSerializer(serializers.ModelSerializer):
         return user
 
 class LoginSerializer(serializers.Serializer):
+
     email = serializers.EmailField()
-    password = serializers.CharField(write_only=True)
+
+    password = serializers.CharField(
+        write_only=True
+    )
 
     def validate(self, data):
+
         email = data.get("email")
         password = data.get("password")
 
@@ -72,4 +86,5 @@ class LoginSerializer(serializers.Serializer):
             )
 
         data["user"] = user
+
         return data

@@ -24,7 +24,7 @@ import metaLogo from "../../assets/meta.png";
 import { Link } from "react-router-dom";
 
 export const navItems = [
-  { label: "Dashboard", icon: "layout-dashboard", path: "/" },
+  { label: "Dashboard", icon: "layout-dashboard", path: "/dashboard" },
   { label: "Roadmap", icon: "map", path: "/roadmap" },
   { label: "Assessments", icon: "clipboard-list", path: "/assessments" },
   { label: "Mock Interviews", icon: "users", path: "/mock-interviews" },

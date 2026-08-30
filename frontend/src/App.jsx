@@ -18,117 +18,127 @@ import Setting from "./Components/Settings/Setting"; // Settings
 import EditProfile from "./Components/Settings/EditProfile"; //Edit Profile
 import MockInterview from "./Components/Mock Interview/MockInterview"; //MockInterview
 import ProfileHeader from "./Components/Common/ProfileHeader";
+import ResetPassword from "./components/auth/ResetPassword";
+import ProtectedRoute from "./Components/Common/ProtectedRoute";
 import { Settings } from "lucide-react";
 
 function App() {
   return (
     <>
-    <Background>
-    <Routes>
+      <Background>
+        <Routes>
 
-      {/* =========================
-          PAGES WITHOUT SIDEBAR
-          ========================= */}
+          {/* =========================
+              PUBLIC PAGES
+              ========================= */}
 
-      <Route
-        path="/"
-        element={<Login />}
-      />
+          <Route
+            path="/"
+            element={<Login />}
+          />
 
-      <Route
-        path="/forgot-password"
-        element={<ForgotPassword />} />
-      
+          <Route
+            path="/forgot-password"
+            element={<ForgotPassword />}
+          />
 
-      <Route
-        path="/change-password"
-        element={<ChangePassword />}
-      />
+          <Route
+            path="/reset-password/:uidb64/:token/"
+            element={<ResetPassword />}
+          />
 
-      {/* =========================
-          PAGES WITH COMMON SIDEBAR
-          ========================= */}
 
-      <Route element={<SidebarLayout />}>
+          {/* =========================
+              PROTECTED PAGES
+              ========================= */}
 
-        {/* Dashboard */}
-        <Route
-          path="/dashboard"
-          element={<Dashboard />}
-        />
+          <Route element={<ProtectedRoute />}>
 
-        {/* Assessment */}
-        <Route
-          path="/assessments"
-          element={<Assessment />}
-        />
-        {/* Achievments */}
-        <Route
-          path="/achievements"
-          element={<Achievements />}
-        />
+            {/* Change Password */}
+            <Route
+              path="/change-password"
+              element={<ChangePassword />}
+            />
 
-        {/* Roadmap */}
-        <Route
-          path="/roadmap"
-          element={<Roadmap />}
-        />
-        {/* Resources */}
-        <Route
-          path="/resources"
-          element={<Resources />}
-        />
-        {/* Mock Interview */}
-        <Route
-          path="/mock-interviews"
-          element={<MockInterview />}
-        />
+            {/* All Sidebar Pages */}
+            <Route element={<SidebarLayout />}>
 
-        {/* Coding Practice */}
-        <Route
-          path="/coding-practice"
-          element={<CodeLayout />}
-        />
+              <Route
+                path="/dashboard"
+                element={<Dashboard />}
+              />
 
-        {/* Resume Builder */}
-        <Route
-          path="/resume-builder"
-          element={<ResumeLayout />}
-        />
-        {/*AI Coach*/}
-        <Route path="/ai-coach" 
-         element={<AICoach />} />
-        {/* Job Tracker */}
-        <Route
-          path="/job-tracker"
-          element={<JobLayout />}
-        />
+              <Route
+                path="/assessments"
+                element={<Assessment />}
+              />
 
-        {/* Profile / Settings */}
-        <Route
-          path="/settings"
-          element={<Setting />}
-        />
-        <Route
-          path="/profile"
-          element={<EditProfile />}
-        />
+              <Route
+                path="/achievements"
+                element={<Achievements />}
+              />
 
-      </Route>
+              <Route
+                path="/roadmap"
+                element={<Roadmap />}
+              />
 
-        <Route path="forgot-password" element={<ForgotPassword />} />
+              <Route
+                path="/resources"
+                element={<Resources />}
+              />
 
-      {/* =========================
-          404
-          ========================= */}
+              <Route
+                path="/mock-interviews"
+                element={<MockInterview />}
+              />
 
-      <Route
-        path="*"
-        element={<Error />}
-      />
+              <Route
+                path="/coding-practice"
+                element={<CodeLayout />}
+              />
 
-    </Routes>
-    </Background>
+              <Route
+                path="/resume-builder"
+                element={<ResumeLayout />}
+              />
+
+              <Route
+                path="/ai-coach"
+                element={<AICoach />}
+              />
+
+              <Route
+                path="/job-tracker"
+                element={<JobLayout />}
+              />
+
+              <Route
+                path="/settings"
+                element={<Setting />}
+              />
+
+              <Route
+                path="/profile"
+                element={<EditProfile />}
+              />
+
+            </Route>
+
+          </Route>
+
+
+          {/* =========================
+              404
+              ========================= */}
+
+          <Route
+            path="*"
+            element={<Error />}
+          />
+
+        </Routes>
+      </Background>
     </>
   );
 }

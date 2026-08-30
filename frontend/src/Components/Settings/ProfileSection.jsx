@@ -34,6 +34,7 @@ const ProfileSection = () => {
 
   return (
     <div className="w-full rounded-2xl border border-white/60 bg-white/70 p-6 shadow-sm backdrop-blur-sm">
+
       {/* Heading */}
       <div className="mb-6">
         <h2 className="text-[20px] font-semibold text-[#1F245C]">
@@ -47,19 +48,27 @@ const ProfileSection = () => {
 
       {/* Profile Content */}
       <div className="flex items-center justify-between">
+
         {/* Left: Photo + Details */}
         <div className="flex items-center gap-5">
 
           {/* Profile Photo */}
           <div className="relative h-24 w-24 shrink-0">
-            <img
-              src="https://i.pravatar.cc/100?img=32"
-              alt="Profile"
-              className="h-24 w-24 rounded-full border-4 border-white object-cover shadow-sm"
-            />
+            {user?.profile_photo ? (
+              <img
+                src={user.profile_photo}
+                alt={user.name || "Profile"}
+                className="h-24 w-24 rounded-full border-4 border-white object-cover shadow-sm"
+              />
+            ) : (
+              <div className="flex h-24 w-24 items-center justify-center rounded-full border-4 border-white bg-[#6C3CF0] text-2xl font-semibold text-white shadow-sm">
+                {user?.name?.charAt(0).toUpperCase() || "U"}
+              </div>
+            )}
 
             {/* Camera Button */}
             <button
+              type="button"
               className="absolute bottom-0 right-0 flex h-8 w-8 items-center justify-center rounded-full border-2 border-white bg-[#EEE7FF] text-[#6C3CF0] shadow-sm"
               aria-label="Change profile picture"
             >
@@ -97,15 +106,18 @@ const ProfileSection = () => {
 
         {/* Edit Profile */}
         <Link to="/profile">
-          <button className="flex items-center gap-2 rounded-xl border border-[#8B5CF6] bg-white/60 px-5 py-2.5 text-[14px] font-medium text-[#6C3CF0] transition hover:bg-[#EEE7FF]">
+          <button
+            type="button"
+            className="flex items-center gap-2 rounded-xl border border-[#8B5CF6] bg-white/60 px-5 py-2.5 text-[14px] font-medium text-[#6C3CF0] transition hover:bg-[#EEE7FF]"
+          >
             <Pencil size={16} />
             Edit Profile
           </button>
         </Link>
+
       </div>
     </div>
   );
 };
 
 export default ProfileSection;
-

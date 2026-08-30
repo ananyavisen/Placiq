@@ -64,14 +64,17 @@
           );
   
           const data = await response.json();
-  
+
+          console.log("Login status:", response.status);
+          console.log("Login response:", data);
+          
           if (response.ok) {
-              navigate("/dashboard");
+            navigate("/dashboard");
           } else {
-              setError(
-                  data.non_field_errors?.[0] ||
-                  "Invalid email or password."
-              );
+            setError(
+              data.non_field_errors?.[0] ||
+              "Invalid email or password."
+            );
           }
   
       } catch (error) {
