@@ -27,7 +27,7 @@ export const navItems = [
   { label: "Dashboard", icon: "layout-dashboard", path: "/dashboard" },
   { label: "Roadmap", icon: "map", path: "/roadmap" },
   { label: "Assessments", icon: "clipboard-list", path: "/assessments" },
-  { label: "Mock Interviews", icon: "users", path: "/mock-interviews" },
+  { label: "Mock Interviews", icon: "users", path: "/mock-interview" },
   { label: "Coding Practice", icon: "code-2", path: "/coding-practice" },
   { label: "Resume Builder", icon: "file-text", path: "/resume-builder" },
   { label: "Job Tracker", icon: "briefcase", path: "/job-tracker" },

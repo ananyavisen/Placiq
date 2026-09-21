@@ -7,6 +7,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/auth/", include("accounts.urls")),
     path("api/resume/", include("resume.urls")),
+    path('api/mock-interview/', include('mock_interview.urls')),
 ]
 if settings.DEBUG:
     urlpatterns += static(

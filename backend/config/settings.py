@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     "corsheaders",
     "accounts",
     "resume",
+    "mock_interview",
 ]
 
 REST_FRAMEWORK = {
