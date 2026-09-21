@@ -1,52 +1,41 @@
 import React from "react";
-import { Clock3, Target } from "lucide-react";
 
 export default function RoundHeader({
   type,
-  icon,
+  icon: Icon,
   description,
   duration,
   questions,
   buttonText,
+  onStart,
 }) {
-  const Icon = icon;
-
   return (
     <div className="mi-round-header">
 
-      <div className="mi-round-icon">
-        <Icon size={24} />
-      </div>
+      <div className="mi-round-header-top">
 
-      <div className="mi-round-description">
-        <h3>{type}</h3>
-
-        <p>{description}</p>
-      </div>
-
-      <div className="mi-round-details">
-
-        <div className="mi-detail-item">
-          <Clock3 size={18} />
-
-          <div>
-            <span>Duration</span>
-            <strong>{duration}</strong>
-          </div>
+        <div className="mi-round-icon">
+          <Icon size={24} />
         </div>
 
-        <div className="mi-detail-item">
-          <Target size={18} />
+        <div className="mi-round-info">
+          <h2>{type}</h2>
 
-          <div>
-            <span>Questions</span>
-            <strong>{questions}</strong>
+          <p>{description}</p>
+
+          <div className="mi-round-meta">
+            <span>{duration}</span>
+            <span>•</span>
+            <span>{questions} Questions</span>
           </div>
         </div>
 
       </div>
 
-      <button className="mi-start-button">
+      <button
+        className="mi-start-button"
+        onClick={onStart}
+      >
         {buttonText}
       </button>
 

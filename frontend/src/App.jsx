@@ -20,7 +20,10 @@ import MockInterview from "./Components/Mock Interview/MockInterview"; //MockInt
 import ProfileHeader from "./Components/Common/ProfileHeader";
 import ResetPassword from "./components/auth/ResetPassword";
 import ProtectedRoute from "./Components/Common/ProtectedRoute";
+import VoiceInterview from "./Components/Mock Interview/VoiceInterview";
+import InterviewReport from "./Components/Mock Interview/InterviewReport";
 import { Settings } from "lucide-react";
+import Insights from "./Components/Mock Interview/Insights";
 
 function App() {
   return (
@@ -89,10 +92,17 @@ function App() {
               />
 
               <Route
-                path="/mock-interviews"
+                path="/mock-interview"
                 element={<MockInterview />}
               />
-
+              <Route
+                  path="/mock-interview/voice"
+                  element={<VoiceInterview />}
+                />
+                <Route
+                  path="/mock-interview/report/:sessionId"
+                  element={<InterviewReport />}
+                />
               <Route
                 path="/coding-practice"
                 element={<CodeLayout />}

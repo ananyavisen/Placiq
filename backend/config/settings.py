@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "corsheaders",
     "accounts",
+    "mock_interview",
 ]
 
 REST_FRAMEWORK = {
