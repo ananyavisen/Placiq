@@ -1,8 +1,38 @@
+import { useEffect, useState } from "react";
 import { Zap } from "lucide-react";
-import { improvements } from "./improvementData";
 import ImprovementItem from "./ImprovementItem";
 
 export default function ImprovementCard() {
+  const [suggestions, setSuggestions] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchSuggestions = async () => {
+      try {
+        const response = await fetch(
+          "http://localhost:8000/api/resume/latest/",
+          {
+            credentials: "include",
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error("Failed to fetch resume analysis");
+        }
+
+        const data = await response.json();
+
+        setSuggestions(data.analysis?.suggestions || []);
+      } catch (error) {
+        console.error("Suggestion fetch error:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchSuggestions();
+  }, []);
+
   return (
     <div className="rounded-3xl border mt-2 border-[#ECE8F8] p-6 shadow-xl">
       {/* Header */}
@@ -17,22 +47,38 @@ export default function ImprovementCard() {
           </div>
 
           <p className="mt-1 text-sm text-slate-500">
-            Focus on these areas to improve your ATS score and resume quality.
+            AI-generated suggestions based on your resume.
           </p>
         </div>
 
-        <span className="rounded-full bg-red-100 px-3 py-1 text-xs font-semibold text-red-500">
-          4 Issues Found
-        </span>
+        {!loading && (
+          <span className="rounded-full bg-red-100 px-3 py-1 text-xs font-semibold text-red-500">
+            {suggestions.length} Issues Found
+          </span>
+        )}
       </div>
 
-      {/* Items */}
-      {improvements.map((item) => (
-        <ImprovementItem
-          key={item.title}
-          {...item}
-        />
-      ))}
+      {/* Suggestions */}
+      {loading ? (
+        <p className="text-sm text-slate-500">
+          Analyzing your resume...
+        </p>
+      ) : suggestions.length === 0 ? (
+        <p className="text-sm text-slate-500">
+          No improvement suggestions found.
+        </p>
+      ) : (
+        suggestions.map((suggestion, index) => (
+          <div
+            key={index}
+            className="border-b border-[#ECE8F8] py-4 last:border-b-0"
+          >
+            <p className="text-sm leading-6 text-slate-700">
+              {suggestion}
+            </p>
+          </div>
+        ))
+      )}
 
       {/* Footer */}
       <div className="pt-5 text-center">
