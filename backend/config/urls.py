@@ -8,6 +8,7 @@ urlpatterns = [
     path("api/auth/", include("accounts.urls")),
     path("api/resume/", include("resume.urls")),
     path('api/mock-interview/', include('mock_interview.urls')),
+    path("api/ai-coach/", include("ai_coach.urls")),
 ]
 if settings.DEBUG:
     urlpatterns += static(
