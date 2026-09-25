@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     "accounts",
     "resume",
     "mock_interview",
+    "ai_coach",
 ]
 
 REST_FRAMEWORK = {
@@ -78,7 +79,7 @@ DATABASES = {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": "Placiq",
         "USER": "postgres",
-        "PASSWORD": os.getenv("POSTGRES_PASSWORD"),
+        "PASSWORD": os.getenv("DB_PASSWORD"),
         "HOST": "localhost",
         "PORT": "5432",
     }
