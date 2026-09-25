@@ -1,283 +1,377 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+
 import {
-  Bot,
-  Send,
-  ExternalLink,
-  CheckCheck,
-  Sparkles,
+    Bot,
+    Send,
+    CheckCheck,
+    Sparkles,
 } from "lucide-react";
 
-const API_BASE_URL = "http://127.0.0.1:8000/api/ai-coach";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+
+const API_BASE_URL = "http://localhost:8000/api/ai-coach";
 
 const BotAvatar = () => {
-  return (
-    <div className="ai-bot-avatar">
-      <Bot size={24} />
-    </div>
-  );
+    return (
+        <div className="ai-bot-avatar">
+            <Bot size={24} />
+        </div>
+    );
 };
 
 const Message = ({ children, user, time }) => {
-  const rowClass = user
-    ? "ai-message-row ai-user-row"
-    : "ai-message-row";
+    const rowClass = user
+        ? "ai-message-row ai-user-row"
+        : "ai-message-row";
 
-  const messageClass = user
-    ? "ai-message ai-user-message"
-    : "ai-message ai-bot-message";
+    const messageClass = user
+        ? "ai-message ai-user-message"
+        : "ai-message ai-bot-message";
 
-  return (
-    <div className={rowClass}>
-      {!user && <BotAvatar />}
+    return (
+        <div className={rowClass}>
+            {!user && <BotAvatar />}
 
-      <div className={messageClass}>
-        {children}
+            <div className={messageClass}>
+                {children}
 
-        <div className="ai-message-time">
-          <span>{time}</span>
-
-          {user && <CheckCheck size={14} />}
+                <div className="ai-message-time">
+                    <span>{time}</span>
+                    {user && <CheckCheck size={14} />}
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  );
+    );
 };
 
 const getCookie = (name) => {
-  const cookies = document.cookie.split(";");
+    const cookies = document.cookie.split(";");
 
-  for (const cookie of cookies) {
-    const parts = cookie.trim().split("=");
+    for (const cookie of cookies) {
+        const parts = cookie.trim().split("=");
 
-    const key = parts.shift();
-    const value = parts.join("=");
+        const key = parts.shift();
+        const value = parts.join("=");
 
-    if (key === name) {
-      return decodeURIComponent(value);
+        if (key === name) {
+            return decodeURIComponent(value);
+        }
     }
-  }
 
-  return null;
+    return null;
 };
 
-const ChatPanel = () => {
-  const [input, setInput] = useState("");
-  const [messages, setMessages] = useState([]);
-  const [conversationId, setConversationId] = useState(null);
-  const [loading, setLoading] = useState(false);
+const ChatPanel = ({ quickQuery }) => {
+    const [input, setInput] = useState("");
+    const [messages, setMessages] = useState([]);
+    const [conversationId, setConversationId] = useState(null);
+    const [loading, setLoading] = useState(false);
 
-  const sendMessage = async () => {
-    const message = input.trim();
-
-    if (!message || loading) {
-      return;
-    }
-
-    setMessages((previous) => {
-      return [
-        ...previous,
-        {
-          text: message,
-          user: true,
-          time: "Now",
-        },
-      ];
+    const [userProfile, setUserProfile] = useState({
+        name: "",
+        career_goal: "",
     });
 
-    setInput("");
-    setLoading(true);
+    // --------------------------------
+    // Get CSRF cookie
+    // --------------------------------
+    useEffect(() => {
+        fetch(API_BASE_URL + "/csrf/", {
+            credentials: "include",
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    console.error(
+                        "Failed to get CSRF token:",
+                        response.status
+                    );
+                }
+            })
+            .catch((error) => {
+                console.error("CSRF error:", error);
+            });
+    }, []);
 
-    try {
-      const csrfToken = getCookie("csrftoken");
+    // --------------------------------
+    // Fetch logged-in user's profile
+    // --------------------------------
+    useEffect(() => {
+        const fetchProfile = async () => {
+            try {
+                const response = await fetch(
+                    API_BASE_URL + "/profile/",
+                    {
+                        credentials: "include",
+                    }
+                );
 
-      const response = await fetch(
-        API_BASE_URL + "/chat/",
-        {
-          method: "POST",
-          credentials: "include",
-          headers: {
-            "Content-Type": "application/json",
-            ...(csrfToken
-              ? { "X-CSRFToken": csrfToken }
-              : {}),
-          },
-          body: JSON.stringify({
-            message: message,
-            conversation_id: conversationId,
-          }),
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(
+                        data.error || "Failed to fetch profile"
+                    );
+                }
+
+                setUserProfile(data);
+
+            } catch (error) {
+                console.error(
+                    "Profile fetch error:",
+                    error
+                );
+            }
+        };
+
+        fetchProfile();
+    }, []);
+
+    // --------------------------------
+    // Send message to AI Coach
+    // --------------------------------
+    const sendMessage = async (query = input) => {
+        const message = query.trim();
+
+        if (!message || loading) {
+            return;
         }
-      );
 
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(
-          data?.error ||
-            data?.detail ||
-            "Unable to get a response from AI Coach."
-        );
-      }
-
-      if (data.conversation_id) {
-        setConversationId(data.conversation_id);
-      }
-
-      if (data.message && data.message.content) {
-        setMessages((previous) => {
-          return [
+        // Add user message immediately
+        setMessages((previous) => [
             ...previous,
             {
-              text: data.message.content,
-              user: false,
-              time: "Now",
+                text: message,
+                user: true,
+                time: "Now",
             },
-          ];
-        });
-      }
-    } catch (error) {
-      console.error("AI Coach error:", error);
+        ]);
 
-      setMessages((previous) => {
-        return [
-          ...previous,
-          {
-            text:
-              error.message ||
-              "Something went wrong. Please try again.",
-            user: false,
-            time: "Now",
-          },
-        ];
-      });
-    } finally {
-      setLoading(false);
-    }
-  };
+        setInput("");
+        setLoading(true);
 
-  const handleKeyDown = (event) => {
-    if (event.key === "Enter" && !event.shiftKey) {
-      event.preventDefault();
-      sendMessage();
-    }
-  };
+        try {
+            const csrfToken = getCookie("csrftoken");
 
-  return (
-    <section className="ai-chat-card">
+            console.log("CSRF TOKEN:", csrfToken);
+            console.log(
+                "POST URL:",
+                API_BASE_URL + "/chat/"
+            );
 
-      <div className="ai-messages">
+            const response = await fetch(
+                API_BASE_URL + "/chat/",
+                {
+                    method: "POST",
+                    credentials: "include",
 
-        {/* Initial bot message */}
-        <Message time="9:30 PM">
-          <p>
-            <strong>Hi Anek! 👋</strong>
-          </p>
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-CSRFToken": csrfToken,
+                    },
 
-          <p>
-            I'm your AI Coach. Ask me anything about DSA,
-            System Design, OS, Aptitude, or interview prep.
-            I'm here to help you improve every day!
-          </p>
-        </Message>
+                    body: JSON.stringify({
+                        message: message,
+                        conversation_id: conversationId,
+                    }),
+                }
+            );
 
-        {/* Demo conversation */}
-        <Message user time="9:31 PM">
-          Can you help me revise Operating System concepts?
-        </Message>
+            const text = await response.text();
 
-        <Message time="9:31 PM">
-          <p>
-            Sure! Here's a quick revision list for Operating System:
-          </p>
+            console.log("STATUS:", response.status);
+            console.log("RESPONSE:", text);
 
-          <ul>
-            <li>Processes & Threads</li>
-            <li>CPU Scheduling</li>
-            <li>Memory Management</li>
-            <li>File Systems</li>
-            <li>Deadlocks</li>
-          </ul>
+            let data;
 
-          <p>
-            Would you like a quiz or notes on any of these topics?
-          </p>
-        </Message>
+            try {
+                data = JSON.parse(text);
+            } catch {
+                throw new Error(
+                    `Server returned non-JSON response (${response.status})`
+                );
+            }
 
-        <Message user time="9:32 PM">
-          Give me a 5 question quiz on CPU Scheduling.
-        </Message>
+            if (!response.ok) {
+                throw new Error(
+                    data?.error ||
+                    data?.detail ||
+                    "Unable to get a response from AI Coach."
+                );
+            }
 
-        <Message time="9:32 PM">
-          <p>
-            Great! I've generated a 5 question quiz on CPU Scheduling.
-          </p>
+            if (data.conversation_id) {
+                setConversationId(
+                    data.conversation_id
+                );
+            }
 
-          <p>
-            Click below to start the quiz.
-          </p>
+            if (data.message?.content) {
+                setMessages((previous) => [
+                    ...previous,
+                    {
+                        text: data.message.content,
+                        user: false,
+                        time: "Now",
+                    },
+                ]);
+            }
 
-          <button className="ai-quiz-button">
-            <ExternalLink size={16} />
-            Start Quiz
-          </button>
-        </Message>
+        } catch (error) {
+            console.error(
+                "AI Coach error:",
+                error
+            );
 
-        {/* Real messages */}
-        {messages.map((message, index) => {
-          return (
-            <Message
-              key={index}
-              user={message.user}
-              time={message.time}
-            >
-              {message.text}
-            </Message>
-          );
-        })}
+            setMessages((previous) => [
+                ...previous,
+                {
+                    text:
+                        error.message ||
+                        "Something went wrong. Please try again.",
+                    user: false,
+                    time: "Now",
+                },
+            ]);
 
-        {/* Loading */}
-        {loading && (
-          <Message time="Now">
-            <p>AI Coach is thinking...</p>
-          </Message>
-        )}
+        } finally {
+            setLoading(false);
+        }
+    };
 
-      </div>
+    // --------------------------------
+    // Handle Quick Question
+    // --------------------------------
+    useEffect(() => {
+        if (quickQuery?.text) {
+            sendMessage(quickQuery.text);
+        }
+    }, [quickQuery]);
 
-      {/* Input */}
-      <div className="ai-chat-input-container">
+    // --------------------------------
+    // Enter key
+    // --------------------------------
+    const handleKeyDown = (event) => {
+        if (
+            event.key === "Enter" &&
+            !event.shiftKey
+        ) {
+            event.preventDefault();
+            sendMessage();
+        }
+    };
 
-        <input
-          type="text"
-          value={input}
-          onChange={(event) => {
-            setInput(event.target.value);
-          }}
-          onKeyDown={handleKeyDown}
-          placeholder="Ask anything..."
-          disabled={loading}
-        />
+    return (
+        <section className="ai-chat-card">
 
-        <button
-          className="ai-send-button"
-          onClick={sendMessage}
-          disabled={loading || !input.trim()}
-        >
-          <Send size={18} />
-        </button>
+            <div className="ai-messages">
 
-      </div>
+                {/* Permanent welcome message */}
 
-      {/* Disclaimer */}
-      <div className="ai-disclaimer">
-        <Sparkles size={12} />
+                <Message time="Now">
+                    <p>
+                        <strong>
+                            Hi {userProfile.name || "there"}! 👋
+                        </strong>
+                    </p>
 
-        <span>
-          AI Coach can make mistakes. Please verify important information.
-        </span>
-      </div>
+                    <p>
+                        I’m your AI Coach, here to help you
+                        prepare for placements, coding
+                        interviews, and anything else on
+                        your path to becoming a Software Engineer.
+                    </p>
 
-    </section>
-  );
+                    {userProfile.career_goal && (
+                        <p>
+                            I’ll keep your goal of becoming a{" "}
+                            <strong>
+                                {userProfile.career_goal}
+                            </strong>{" "}
+                            in mind while guiding you.
+                        </p>
+                    )}
+                </Message>
+
+
+                {/* Real messages */}
+
+                {messages.map((message, index) => (
+                    <Message
+                        key={index}
+                        user={message.user}
+                        time={message.time}
+                    >
+                        {message.user ? (
+                            message.text
+                        ) : (
+                            <ReactMarkdown
+                                remarkPlugins={[remarkGfm]}
+                            >
+                                {message.text}
+                            </ReactMarkdown>
+                        )}
+                    </Message>
+                ))}
+
+
+                {/* Loading */}
+
+                {loading && (
+                    <Message time="Now">
+                        <p>
+                            AI Coach is thinking...
+                        </p>
+                    </Message>
+                )}
+
+            </div>
+
+
+            {/* Input */}
+
+            <div className="ai-chat-input-container">
+
+                <input
+                    type="text"
+                    value={input}
+                    onChange={(event) => {
+                        setInput(event.target.value);
+                    }}
+                    onKeyDown={handleKeyDown}
+                    placeholder="Ask anything..."
+                    disabled={loading}
+                />
+
+                <button
+                    className="ai-send-button"
+                    onClick={() => sendMessage()}
+                    disabled={
+                        loading ||
+                        !input.trim()
+                    }
+                >
+                    <Send size={18} />
+                </button>
+
+            </div>
+
+
+            {/* Disclaimer */}
+
+            <div className="ai-disclaimer">
+
+                <Sparkles size={12} />
+
+                <span>
+                    AI Coach can make mistakes.
+                    Please verify important information.
+                </span>
+
+            </div>
+
+        </section>
+    );
 };
 
 export default ChatPanel;

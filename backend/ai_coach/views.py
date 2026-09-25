@@ -3,7 +3,7 @@ from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
-
+from django.http import JsonResponse
 from .models import CoachConversation, CoachMessage
 from .serializers import (
     ChatRequestSerializer,
@@ -12,7 +12,17 @@ from .serializers import (
 )
 from .services import generate_coach_response
 
+def coach_profile(request):
+    if not request.user.is_authenticated:
+        return JsonResponse(
+            {"error": "Authentication required"},
+            status=401
+        )
 
+    return JsonResponse({
+        "name": request.user.name,
+        "career_goal": request.user.target_role,
+    })
 class CoachChatView(APIView):
     permission_classes = [IsAuthenticated]
 

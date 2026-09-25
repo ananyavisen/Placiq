@@ -4,6 +4,7 @@ from .views import (
     CoachChatView,
     CoachConversationListView,
     CoachConversationDetailView,
+    coach_profile
 )
 
 
@@ -19,4 +20,5 @@ urlpatterns = [
         CoachConversationDetailView.as_view(),
         name="coach-conversation-detail",
     ),
+    path("profile/", coach_profile),
 ]

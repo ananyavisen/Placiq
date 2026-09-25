@@ -413,7 +413,7 @@ export default function VoiceInterview() {
 
     }
 
-    navigate("/mock-interviews");
+    navigate("/mock-interview");
 
   };
 

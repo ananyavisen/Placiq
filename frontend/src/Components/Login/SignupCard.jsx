@@ -53,7 +53,7 @@ export default function SignupCard({ onLogin }) {
 
     try {
       const response = await fetch(
-        "http://127.0.0.1:8000/api/auth/signup/",
+        "http://localhost:8000/api/auth/signup/",
         {
           method: "POST",
           headers: {

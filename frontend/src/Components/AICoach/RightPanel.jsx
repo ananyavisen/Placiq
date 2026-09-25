@@ -39,14 +39,14 @@ const suggestedPrompts = [
   "Tips for HR interview",
 ];
 
-const RightPanel = () => {
+const RightPanel = ({ onPromptClick }) => {
   return (
     <aside className="ai-right-panel">
       {/* <ProfileHeader /> */}
       {/* Quick Actions */}
       <div className="ai-side-card">
 
-        <h3>Quick Actions</h3>
+        <h3>Suggested Tasks to ask coach</h3>
 
         <div className="ai-quick-actions">
 
@@ -79,20 +79,20 @@ const RightPanel = () => {
       {/* Suggested prompts */}
       <div className="ai-side-card ai-prompts-card">
 
-        <h3>Suggested Prompts</h3>
+        <h3>Quick Questions</h3>
 
         <div className="ai-prompt-list">
 
-          {suggestedPrompts.map((prompt) => (
-            <button
-              className="ai-prompt"
-              key={prompt}
-            >
-              <ExternalLink size={14} />
-
-              <span>{prompt}</span>
-            </button>
-          ))}
+        {suggestedPrompts.map((prompt) => (
+    <button
+        className="ai-prompt"
+        key={prompt}
+        onClick={() => onPromptClick(prompt)}
+    >
+        <ExternalLink size={14} />
+        <span>{prompt}</span>
+    </button>
+))}
 
         </div>
       </div>

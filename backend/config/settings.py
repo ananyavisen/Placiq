@@ -79,7 +79,7 @@ DATABASES = {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": "Placiq",
         "USER": "postgres",
-        "PASSWORD": os.getenv("DB_PASSWORD"),
+        "PASSWORD": os.getenv("POSTGRES_PASSWORD"),
         "HOST": "localhost",
         "PORT": "5432",
     }

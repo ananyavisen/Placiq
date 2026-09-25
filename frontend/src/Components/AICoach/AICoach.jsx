@@ -6,8 +6,10 @@ import ChatPanel from "./ChatPanel";
 import RightPanel from "./RightPanel";
 import "./AICoach.css";
 import ProfileHeader from "../Common/ProfileHeader";
+import { useState } from "react";
 
 const AICoach = () => {
+  const [quickQuery, setQuickQuery] = useState(null);
   return (
     
 
@@ -28,8 +30,19 @@ const AICoach = () => {
           </div>
 
           <div className="ai-coach-grid">
-            <ChatPanel />
-            <RightPanel />
+       
+
+          <ChatPanel quickQuery={quickQuery} />
+
+          <RightPanel
+              onPromptClick={(prompt) => {
+                  setQuickQuery({
+                      text: prompt,
+                      id: Date.now(),
+                  });
+              }}
+          />
+        
           </div>
         </div>
       </main>
